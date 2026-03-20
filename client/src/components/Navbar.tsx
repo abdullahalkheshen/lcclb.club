@@ -1,5 +1,5 @@
 /*
- * DESIGN: Velocity Noir — Minimal top bar that transforms to full-screen overlay on mobile
+ * DESIGN: Velocity Noir — Minimal top bar for multi-page site
  * Dark transparent background that becomes solid on scroll
  * Racing red accent on active/hover states
  */
@@ -7,19 +7,22 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation } from "wouter";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Achievements", href: "#achievements" },
-  { label: "Events", href: "#events" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Legacy", href: "/legacy" },
+  { label: "Team", href: "/team" },
+  { label: "Record", href: "/record" },
+  { label: "News", href: "/news" },
+  { label: "Partners", href: "/partners" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [location] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,13 +32,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  useEffect(() => {
     setIsMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <>
@@ -48,12 +48,8 @@ export default function Navbar() {
       >
         <div className="container flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick("#home");
-            }}
+          <Link
+            href="/"
             className="flex items-center gap-2 group"
           >
             <span className="font-display text-2xl md:text-3xl font-bold tracking-wider text-white">
@@ -63,23 +59,27 @@ export default function Navbar() {
             <span className="font-display text-xs md:text-sm font-light tracking-[0.3em] text-silver uppercase">
               Lebanon
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
-                className="relative font-display text-sm font-light tracking-[0.15em] uppercase text-silver hover:text-white transition-colors duration-300 group"
+                className={`relative font-display text-xs xl:text-sm font-light tracking-[0.12em] uppercase transition-colors duration-300 group ${
+                  location === link.href
+                    ? "text-white"
+                    : "text-silver hover:text-white"
+                }`}
               >
                 {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-racing-red group-hover:w-full transition-all duration-300" />
-              </a>
+                <span
+                  className={`absolute -bottom-1 left-0 h-[2px] bg-racing-red transition-all duration-300 ${
+                    location === link.href ? "w-full" : "w-0 group-hover:w-full"
+                  }`}
+                />
+              </Link>
             ))}
           </div>
 
@@ -102,23 +102,26 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-[#0D0D0D]/98 backdrop-blur-xl flex flex-col items-center justify-center gap-8"
+            className="fixed inset-0 z-40 bg-[#0D0D0D]/98 backdrop-blur-xl flex flex-col items-center justify-center gap-6"
           >
             {navLinks.map((link, i) => (
-              <motion.a
+              <motion.div
                 key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(link.href);
-                }}
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.08, duration: 0.3 }}
-                className="font-display text-3xl font-light tracking-[0.2em] uppercase text-silver hover:text-racing-red transition-colors duration-300"
+                transition={{ delay: i * 0.06, duration: 0.3 }}
               >
-                {link.label}
-              </motion.a>
+                <Link
+                  href={link.href}
+                  className={`font-display text-2xl sm:text-3xl font-light tracking-[0.2em] uppercase transition-colors duration-300 ${
+                    location === link.href
+                      ? "text-racing-red"
+                      : "text-silver hover:text-racing-red"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              </motion.div>
             ))}
           </motion.div>
         )}

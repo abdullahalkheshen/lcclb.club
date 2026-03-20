@@ -1,11 +1,17 @@
+/*
+ * HOME PAGE — Milanote Blueprint (6 sections):
+ * 1. Page Intro (Hero) 2. Team Story 3. Achievements/Proof Strip
+ * 4. Riders Spotlight 5. Partners + News Preview 6. Footer CTA
+ */
+
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TickerTape from "@/components/TickerTape";
 import AboutSection from "@/components/AboutSection";
 import AchievementsSection from "@/components/AchievementsSection";
-import EventsSection from "@/components/EventsSection";
-import GallerySection from "@/components/GallerySection";
-import ContactSection from "@/components/ContactSection";
+import RidersSpotlight from "@/components/RidersSpotlight";
+import PartnersNewsPreview from "@/components/PartnersNewsPreview";
+import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -16,9 +22,9 @@ export default function Home() {
       <TickerTape />
       <AboutSection />
       <AchievementsSection />
-      <EventsSection />
-      <GallerySection />
-      <ContactSection />
+      <RidersSpotlight />
+      <PartnersNewsPreview />
+      <FooterCTA />
       <Footer />
     </div>
   );

@@ -1,11 +1,12 @@
 /*
- * DESIGN: Velocity Noir — Cinematic full-bleed hero with dramatic overlay
- * Diagonal clip-path at bottom, oversized typography, speed-inspired motifs
- * Dark overlay on image with racing red accent line
+ * DESIGN: Velocity Noir — Cinematic full-bleed hero
+ * Official content from Milanote: "Lebanon's Leading Cycling Team"
+ * Founded 2017, National Champions, Lebanon Cup Winners
  */
 
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/hero-banner-BDTymoM9crACR9RNWH9Kzp.webp";
 
@@ -22,8 +23,7 @@ export default function HeroSection() {
           alt="Cyclist racing through Lebanese mountains"
           className="w-full h-full object-cover"
         />
-        {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
       </div>
 
@@ -45,7 +45,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="font-display text-sm md:text-base font-light tracking-[0.4em] uppercase text-silver mb-4"
           >
-            The First Cycling Club in South Lebanon
+            National Champions &middot; Lebanon Cup Winners &middot; Since 2017
           </motion.p>
 
           {/* Main Title */}
@@ -55,11 +55,11 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.7 }}
             className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-6"
           >
-            LEBANESE
+            LEBANON'S
             <br />
-            <span className="text-racing-red">CYCLING</span>
+            <span className="text-racing-red">LEADING</span>
             <br />
-            CLUB
+            CYCLING TEAM
           </motion.h1>
 
           {/* Tagline */}
@@ -69,37 +69,29 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.9 }}
             className="font-body text-lg md:text-xl text-warm-white/80 max-w-lg mb-10 leading-relaxed"
           >
-            Don't limit your challenges, challenge your limits.
+            Shaping the future of Lebanese cycling through discipline, training, and commitment.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons — from Milanote: "Meet the Riders" / "Partner With Us" */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.1 }}
             className="flex flex-wrap gap-4"
           >
-            <a
-              href="#about"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
-              }}
+            <Link
+              href="/team"
               className="inline-flex items-center gap-2 px-8 py-3 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300 hover:translate-x-1"
             >
-              Discover More
-              <span className="w-4 h-[2px] bg-white" />
-            </a>
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
+              Meet the Riders
+              <ArrowRight size={16} />
+            </Link>
+            <Link
+              href="/partners"
               className="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
             >
-              Join the Club
-            </a>
+              Partner With Us
+            </Link>
           </motion.div>
         </div>
 
@@ -112,7 +104,7 @@ export default function HeroSection() {
         >
           <div className="flex flex-col items-center">
             <span className="font-display text-8xl lg:text-9xl font-bold text-white/5">
-              2015
+              2017
             </span>
             <span className="font-display text-xs tracking-[0.3em] uppercase text-silver/50 -mt-4">
               Est.

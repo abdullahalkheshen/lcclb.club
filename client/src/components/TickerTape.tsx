@@ -1,18 +1,16 @@
 /*
  * DESIGN: Velocity Noir — Scrolling ticker tape
- * Horizontal scrolling bar with club achievements
  * Racing red background, white text, continuous motion
+ * Updated with official 2024 achievements from Milanote
  */
 
 const items = [
-  "LEBANESE MTB CHAMPIONS 2017",
-  "ROAD CYCLING CHAMPIONS 2018",
-  "TT WOMEN'S CATEGORY 2025",
-  "LEBANON CUP MASTERS 2025",
-  "FOUNDED 2015",
-  "SOUTH LEBANON",
-  "100+ ACTIVE MEMBERS",
-  "50,000+ KM RIDDEN",
+  "LEBANON CUP CHAMPIONS 2024",
+  "WOMEN'S TT NATIONAL CHAMPION",
+  "MASTERS NATIONAL CHAMPION",
+  "20+ PODIUMS IN 2023-2024",
+  "FOUNDED 2017",
+  "LEBANON'S LEADING CYCLING TEAM",
 ];
 
 export default function TickerTape() {

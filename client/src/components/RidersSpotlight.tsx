@@ -1,0 +1,110 @@
+/*
+ * DESIGN: Velocity Noir — "Meet Our Champions" from Milanote
+ * Featured riders spotlight with category and achievement
+ */
+
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
+
+const riders = [
+  {
+    name: "Women's TT Champion",
+    category: "Elite Women",
+    achievement: "National Time Trial Champion 2024",
+    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&q=80",
+  },
+  {
+    name: "Masters Champion",
+    category: "Masters",
+    achievement: "Masters National Champion 2024",
+    image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=600&q=80",
+  },
+  {
+    name: "Lebanon Cup Finisher",
+    category: "Elite Men",
+    achievement: "Lebanon Cup Podium Finisher",
+    image: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=600&q=80",
+  },
+];
+
+export default function RidersSpotlight() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section ref={ref} className="bg-dark-surface py-24 md:py-32">
+      <div className="container">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
+            Our Athletes
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4">
+            MEET OUR <span className="text-racing-red">CHAMPIONS</span>
+          </h2>
+        </motion.div>
+
+        {/* Riders Grid */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {riders.map((rider, i) => (
+            <motion.div
+              key={rider.name}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
+              className="group relative overflow-hidden"
+            >
+              <div className="relative h-[400px] md:h-[450px]">
+                <img
+                  src={rider.image}
+                  alt={rider.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+                {/* Red top accent */}
+                <div className="absolute top-0 left-0 w-0 h-[3px] bg-racing-red group-hover:w-full transition-all duration-500" />
+              </div>
+
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <span className="font-display text-[10px] tracking-[0.3em] uppercase text-racing-red bg-racing-red/10 px-3 py-1 inline-block mb-3">
+                  {rider.category}
+                </span>
+                <h3 className="font-display text-xl font-bold text-white tracking-wide uppercase mb-1">
+                  {rider.name}
+                </h3>
+                <p className="font-body text-sm text-silver/70">
+                  {rider.achievement}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="text-center"
+        >
+          <Link
+            href="/team"
+            className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300 group"
+          >
+            View All Riders
+            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

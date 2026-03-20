@@ -1,36 +1,36 @@
 /*
- * DESIGN: Velocity Noir — Asymmetric two-column layout
- * Dark background with warm white text, racing red accents
- * Image with diagonal overlay, editorial typography
+ * DESIGN: Velocity Noir — "The LCC Legacy" section from Milanote
+ * Asymmetric two-column layout, dark bg, racing red accents
+ * Founded 2017, discipline, training, commitment
  */
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Target, Users, Mountain, Trophy } from "lucide-react";
+import { Link } from "wouter";
 
 const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/about-section-Wy528oT5NVbEnNXuvhTkzQ.webp";
 
 const values = [
   {
     icon: Target,
-    title: "Our Mission",
-    description: "Promote health and well-being through regular cycling events and professional training across Lebanon.",
+    title: "Excellence",
+    description: "Championship-winning team across multiple categories with a relentless pursuit of competitive success.",
   },
   {
     icon: Users,
     title: "Community",
-    description: "Building a passionate cycling community in South Lebanon since 2015, uniting riders of all levels.",
+    description: "Building a passionate cycling movement in Lebanon since 2017, uniting riders of all levels and backgrounds.",
   },
   {
     icon: Mountain,
-    title: "Adventure",
-    description: "Exploring Lebanon's breathtaking mountain roads, coastal routes, and challenging terrains together.",
+    title: "Development",
+    description: "Advancing cycling in Lebanon through youth development, training programs, and expanding competitive categories.",
   },
   {
     icon: Trophy,
-    title: "Excellence",
-    description: "Competing at the highest level with Lebanese Championship titles in MTB and Road cycling.",
+    title: "Sportsmanship",
+    description: "Competing with discipline, respect, and integrity — values that define our culture on and off the road.",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function AboutSection() {
             <div className="relative overflow-hidden">
               <img
                 src={ABOUT_IMAGE}
-                alt="LCCLB team riding together in the Lebanese mountains"
+                alt="LCC team riding together"
                 className="w-full h-[400px] md:h-[500px] object-cover"
               />
               {/* Red accent corner */}
@@ -64,7 +64,7 @@ export default function AboutSection() {
             </div>
             {/* Floating stat */}
             <div className="absolute -bottom-6 -right-2 md:right-8 bg-racing-red px-6 py-4">
-              <span className="font-display text-4xl font-bold text-white block leading-none">10+</span>
+              <span className="font-display text-4xl font-bold text-white block leading-none">8+</span>
               <span className="font-display text-xs tracking-[0.2em] uppercase text-white/80">Years Strong</span>
             </div>
           </motion.div>
@@ -81,19 +81,24 @@ export default function AboutSection() {
               </span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] mb-6">
-              THE FIRST
+              THE LCC
               <br />
-              <span className="text-racing-red">CYCLING CLUB</span>
-              <br />
-              IN SOUTH LEBANON
+              <span className="text-racing-red">LEGACY</span>
             </h2>
             <div className="w-16 h-[3px] bg-racing-red mb-6" />
             <p className="font-body text-lg text-silver leading-relaxed mb-6">
-              Founded in 2015 in Nabatieh, the Lebanese Cycling Club (LCCLB) is a pioneering force in South Lebanon's cycling scene. We are dedicated to promoting physical and mental well-being through the sport of cycling, while showcasing the stunning landscapes of our homeland.
+              Founded in 2017, LCC has shaped the future of Lebanese cycling. Our culture of discipline, training, and commitment has produced multiple national champions and a strong roster of elite athletes.
             </p>
-            <p className="font-body text-base text-silver/70 leading-relaxed">
-              From mountain trails to coastal roads, our members push boundaries and challenge limits every day. With multiple Lebanese Championship titles under our belt, we continue to inspire the next generation of cyclists in Lebanon and beyond.
+            <p className="font-body text-base text-silver/70 leading-relaxed mb-8">
+              From mountain trails to coastal roads, our members push boundaries and challenge limits every day. With multiple Lebanese Championship titles and Lebanon Cup victories, we continue to inspire the next generation of cyclists in Lebanon and beyond.
             </p>
+            <Link
+              href="/legacy"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300 hover:translate-x-1"
+            >
+              Explore Our Legacy
+              <span className="w-4 h-[2px] bg-white" />
+            </Link>
           </motion.div>
         </div>
 
