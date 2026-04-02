@@ -27,12 +27,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <div className="mb-4">
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/logo_white_trimmed_c8a8bd00.png"
-                alt="Lebanese Cycling Club"
-                className="h-10 w-auto"
-              />
+            <div className="flex items-center gap-2 mb-4">
+              <span className="font-display text-2xl font-bold tracking-wider text-white">
+                LCC
+              </span>
+              <span className="w-8 h-[3px] bg-racing-red" />
+              <span className="font-display text-xs font-light tracking-[0.3em] text-silver/50 uppercase">
+                Lebanon
+              </span>
             </div>
             <p className="font-body text-sm text-silver/50 leading-relaxed">
               Lebanon's leading cycling team. National Champions, Lebanon Cup Winners. Since 2015.

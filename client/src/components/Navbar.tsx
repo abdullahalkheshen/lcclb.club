@@ -50,13 +50,15 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center group"
+            className="flex items-center gap-2 group"
           >
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/logo_white_trimmed_c8a8bd00.png"
-              alt="Lebanese Cycling Club"
-              className="h-10 md:h-12 w-auto group-hover:opacity-90 transition-opacity duration-300"
-            />
+            <span className="font-display text-2xl md:text-3xl font-bold tracking-wider text-white">
+              LCC
+            </span>
+            <span className="w-8 h-[3px] bg-racing-red group-hover:w-12 transition-all duration-300" />
+            <span className="font-display text-xs md:text-sm font-light tracking-[0.3em] text-silver uppercase">
+              Lebanon
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
