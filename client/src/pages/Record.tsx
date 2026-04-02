@@ -12,7 +12,7 @@ import { useRef, useState } from "react";
 import { Medal, Crown, Award, TrendingUp, ArrowRight, Quote } from "lucide-react";
 import { Link } from "wouter";
 
-const GALLERY_1 = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/gallery-cycling-1-TMStZWT2ENinyCKL9AFzLb.webp";
+const GALLERY_1 = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/lizeik_42758a09.jpg";
 
 const majorResults = [
   { icon: Crown, category: "National Championships", count: "8+", description: "National titles across MTB, Road, TT, and Masters categories" },

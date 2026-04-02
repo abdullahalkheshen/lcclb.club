@@ -12,7 +12,7 @@ import { useRef } from "react";
 import { Target, Users, TrendingUp, Heart, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
-const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/about-section-Wy528oT5NVbEnNXuvhTkzQ.webp";
+const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Line-Up-Team-iibtf_941be228.png";
 
 const milestones = [
   { year: "2017", title: "Club Founded", description: "LCC was established with a vision to develop Lebanese cycling and build a championship-winning team." },

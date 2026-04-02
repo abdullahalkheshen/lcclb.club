@@ -1,6 +1,6 @@
 /*
  * DESIGN: Velocity Noir — "Meet Our Champions" from Milanote
- * Featured riders spotlight with category and achievement
+ * Featured riders spotlight with real LCC cyclist photos
  */
 
 import { motion, useInView } from "framer-motion";
@@ -10,22 +10,22 @@ import { Link } from "wouter";
 
 const riders = [
   {
-    name: "Women's TT Champion",
-    category: "Elite Women",
-    achievement: "National Time Trial Champion 2024",
-    image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=600&q=80",
+    name: "Ramona Khalife",
+    category: "Junior",
+    achievement: "Women's TT National Champion 2024",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ramona Khalife - We will change her background_0a41205d.jpg",
   },
   {
-    name: "Masters Champion",
+    name: "Hussein Lizeik",
     category: "Masters",
-    achievement: "Masters National Champion 2024",
-    image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=600&q=80",
+    achievement: "Masters National Champion",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Hussein Lizeik_5002ad5e.jpg",
   },
   {
-    name: "Lebanon Cup Finisher",
-    category: "Elite Men",
+    name: "Hussien Hareb",
+    category: "Elite",
     achievement: "Lebanon Cup Podium Finisher",
-    image: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=600&q=80",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Hussien Hareb_0d0d0a7d.jpg",
   },
 ];
 
@@ -59,13 +59,13 @@ export default function RidersSpotlight() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.15 }}
-              className="group relative overflow-hidden"
+              className="group relative overflow-hidden bg-charcoal"
             >
               <div className="relative h-[400px] md:h-[450px]">
                 <img
                   src={rider.image}
                   alt={rider.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />

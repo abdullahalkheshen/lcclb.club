@@ -1,5 +1,5 @@
 /*
- * DESIGN: Velocity Noir — Photo gallery with hover effects
+ * DESIGN: Velocity Noir — Photo gallery with real LCC race photos
  * Dark background, images with red accent overlays on hover
  * Masonry-inspired grid layout
  */
@@ -9,19 +9,16 @@ import { useRef, useState } from "react";
 import { X } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
 
-const GALLERY_1 = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/gallery-cycling-1-TMStZWT2ENinyCKL9AFzLb.webp";
-const GALLERY_2 = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/gallery-cycling-2-afzuhQjTHij6L8oYH6zNgV.webp";
-const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/hero-banner-BDTymoM9crACR9RNWH9Kzp.webp";
-const ABOUT_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/about-section-Wy528oT5NVbEnNXuvhTkzQ.webp";
-const EVENTS_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/events-section-A4VmqmsXqCNAyLjTRTagMw.webp";
-
 const galleryImages = [
-  { src: GALLERY_1, alt: "Mountain biking through cedar forest", caption: "MTB Trail Ride — Cedar Forest", span: "col-span-1 row-span-2" },
-  { src: HERO_IMG, alt: "Road cycling in Lebanese mountains", caption: "Mountain Road Training", span: "col-span-1 row-span-1" },
-  { src: GALLERY_2, alt: "Sunset coastal ride", caption: "Sunset Coastal Ride", span: "col-span-1 row-span-1" },
-  { src: ABOUT_IMG, alt: "Team peloton ride", caption: "Team Peloton Formation", span: "col-span-2 row-span-1" },
-  { src: EVENTS_IMG, alt: "Race start line", caption: "Race Day — Start Line", span: "col-span-1 row-span-1" },
-  { src: "https://images.unsplash.com/photo-1534787238916-9ba6764efd4f?w=800&q=80", alt: "Cycling gear close-up", caption: "Gear & Equipment", span: "col-span-1 row-span-1" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/lizeik_42758a09.jpg", alt: "Hussein Lizeik racing", caption: "Lizeik — Race Day", span: "col-span-1 row-span-2" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/hareb_991a0a8b.jpg", alt: "Hussien Hareb in action", caption: "Hareb — Full Speed", span: "col-span-1 row-span-1" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/sabah_c84c8fe6.jpg", alt: "Haidar Sabah competing", caption: "Sabah — On the Road", span: "col-span-1 row-span-1" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/atwi_1_5f2b490b.jpg", alt: "Atwi racing", caption: "Atwi — Breaking Away", span: "col-span-2 row-span-1" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramona_0d6d5a75.jpg", alt: "Ramona Khalife racing", caption: "Khalife — Women's Champion", span: "col-span-1 row-span-1" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/moussa_5214407b.jpg", alt: "Mahdi Moussa competing", caption: "Moussa — Race Pace", span: "col-span-1 row-span-1" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ayash_26820c18.jpg", alt: "Mohamad Ayash racing", caption: "Ayash — Climbing", span: "col-span-1 row-span-1" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/atwi_b618f6e0.jpg", alt: "Atwi on the course", caption: "Atwi — Sprint Finish", span: "col-span-1 row-span-1" },
+  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramona_1_4cf41c9b.jpg", alt: "Ramona Khalife training", caption: "Khalife — Training Ride", span: "col-span-1 row-span-1" },
 ];
 
 export default function GallerySection() {
@@ -40,13 +37,13 @@ export default function GallerySection() {
           className="text-center mb-16"
         >
           <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-            Moments
+            Race Gallery
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4">
             FROM THE <span className="text-racing-red">ROAD</span>
           </h2>
           <p className="font-body text-silver/60 mt-4 max-w-lg mx-auto">
-            Capturing the spirit of cycling across Lebanon's most breathtaking landscapes.
+            Real moments from LCC races and competitions across Lebanon.
           </p>
         </motion.div>
 
@@ -57,7 +54,7 @@ export default function GallerySection() {
               key={i}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
+              transition={{ duration: 0.5, delay: 0.1 + i * 0.06 }}
               className={`relative overflow-hidden cursor-pointer group ${image.span}`}
               onClick={() => setSelectedImage(i)}
             >

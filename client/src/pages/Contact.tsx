@@ -11,7 +11,7 @@ import { useRef, useState } from "react";
 import { ChevronDown, MapPin, Mail, Phone } from "lucide-react";
 import { toast } from "sonner";
 
-const GALLERY_2 = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/gallery-cycling-2-afzuhQjTHij6L8oYH6zNgV.webp";
+const RACE_SABAH = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/sabah_c84c8fe6.jpg";
 
 const riderFAQ = [
   { q: "What are the team requirements?", a: "We welcome riders of all levels. Competitive riders should have racing experience, while development riders need basic cycling fitness and a commitment to training." },
@@ -95,7 +95,7 @@ export default function Contact() {
         title="GET IN"
         titleAccent="TOUCH"
         subtitle="Whether you're a potential rider, sponsor, or partner, we'd love to hear from you."
-        image={GALLERY_2}
+        image={RACE_SABAH}
       />
 
       {/* Dual Contact Forms */}

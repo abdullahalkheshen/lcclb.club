@@ -7,7 +7,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "wouter";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/hero-banner-BDTymoM9crACR9RNWH9Kzp.webp";
+const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/FB-cover-10th_c85bad05.png";
 
 export default function FooterCTA() {
   const ref = useRef(null);

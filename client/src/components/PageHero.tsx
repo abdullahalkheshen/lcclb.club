@@ -13,7 +13,7 @@ interface PageHeroProps {
   image?: string;
 }
 
-const DEFAULT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/hero-banner-BDTymoM9crACR9RNWH9Kzp.webp";
+const DEFAULT_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/FB-cover-10th_c85bad05.png";
 
 export default function PageHero({ label, title, titleAccent, subtitle, image }: PageHeroProps) {
   return (

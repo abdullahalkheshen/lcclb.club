@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
-const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/hero-banner-BDTymoM9crACR9RNWH9Kzp.webp";
+const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/FB-cover-10th_c85bad05.png";
 
 export default function HeroSection() {
   return (

@@ -8,7 +8,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Calendar, Clock, ArrowRight } from "lucide-react";
 
-const EVENTS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/events-section-A4VmqmsXqCNAyLjTRTagMw.webp";
+const EVENTS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/hareb_991a0a8b.jpg";
 
 const events = [
   {

@@ -12,24 +12,24 @@ import { useRef, useState } from "react";
 import { Calendar, ArrowRight, Tag } from "lucide-react";
 import { Link } from "wouter";
 
-const EVENTS_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/events-section-A4VmqmsXqCNAyLjTRTagMw.webp";
-const GALLERY_2 = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/gallery-cycling-2-afzuhQjTHij6L8oYH6zNgV.webp";
+const RACE_LIZEIK = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/lizeik_42758a09.jpg";
+const RACE_HAREB = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/hareb_991a0a8b.jpg";
 
 const featuredStory = {
   category: "Race Results",
   title: "LCC Dominates Lebanon Cup 2024 — Multiple Podium Finishes",
   summary: "In a commanding display of team strength and individual brilliance, LCC riders secured multiple podium positions across all categories in the 2024 Lebanon Cup series, cementing the club's status as Lebanon's premier cycling team.",
   date: "December 2024",
-  image: EVENTS_IMAGE,
+  image: RACE_LIZEIK,
 };
 
 const newsArticles = [
-  { category: "Team Announcement", title: "2025 Season Kit Unveiled", summary: "LCC reveals the new season kit featuring updated design and partner branding.", date: "Jan 2025", image: "https://images.unsplash.com/photo-1534787238916-9ba6764efd4f?w=400&q=80" },
-  { category: "Race Results", title: "Women's TT National Title", summary: "Historic victory as LCC rider claims the Women's Time Trial National Championship.", date: "Nov 2024", image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=400&q=80" },
-  { category: "Rider Stories", title: "Masters Champion Profile", summary: "An in-depth look at the journey of our Masters National Champion.", date: "Nov 2024", image: "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=400&q=80" },
-  { category: "Behind the Scenes", title: "Training Camp Recap", summary: "Inside LCC's pre-season training camp in the Lebanese mountains.", date: "Oct 2024", image: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?w=400&q=80" },
-  { category: "Race Results", title: "Selaata Race Highlights", summary: "LCC riders deliver strong performances at the annual Selaata road race.", date: "Sep 2024", image: GALLERY_2 },
-  { category: "Team Announcement", title: "New Partnership Announced", summary: "LCC welcomes a new official partner to support the 2024-2025 season.", date: "Aug 2024", image: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?w=400&q=80" },
+  { category: "Team Announcement", title: "2025 Season Kit Unveiled", summary: "LCC reveals the new season kit featuring updated design and partner branding.", date: "Jan 2025", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Line-Up-Team-iibtf_941be228.png" },
+  { category: "Race Results", title: "Women's TT National Title", summary: "Historic victory as Ramona Khalife claims the Women's Time Trial National Championship.", date: "Nov 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramona_0d6d5a75.jpg" },
+  { category: "Rider Stories", title: "Masters Champion Profile", summary: "An in-depth look at the journey of Hussein Lizeik, our Masters National Champion.", date: "Nov 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/sabah_c84c8fe6.jpg" },
+  { category: "Behind the Scenes", title: "Training Camp Recap", summary: "Inside LCC's pre-season training camp in the Lebanese mountains.", date: "Oct 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/moussa_5214407b.jpg" },
+  { category: "Race Results", title: "Selaata Race Highlights", summary: "LCC riders deliver strong performances at the annual Selaata road race.", date: "Sep 2024", image: RACE_HAREB },
+  { category: "Team Announcement", title: "New Partnership Announced", summary: "LCC welcomes a new official partner to support the 2024-2025 season.", date: "Aug 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ayash_26820c18.jpg" },
 ];
 
 const categories = ["All", "Race Results", "Rider Stories", "Team Announcement", "Behind the Scenes"];
