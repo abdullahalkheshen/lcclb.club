@@ -304,8 +304,8 @@ export default function Contact() {
               className="text-center"
             >
               <MapPin size={24} className="text-racing-red mx-auto mb-3" />
-              <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">Training Locations</h4>
-              <p className="font-body text-sm text-silver/70">South Lebanon & Beyond</p>
+              <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">Address</h4>
+              <p className="font-body text-sm text-silver/70">1700-204, Nabatieh, South Lebanon, Lebanon</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -326,8 +326,10 @@ export default function Contact() {
               className="text-center"
             >
               <Phone size={24} className="text-racing-red mx-auto mb-3" />
-              <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">Social Media</h4>
-              <p className="font-body text-sm text-silver/70">Follow us for updates</p>
+              <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">Phone</h4>
+              <a href="tel:+96176535651" className="font-body text-sm text-silver/70 hover:text-racing-red transition-colors">
+                +961 76 535 651
+              </a>
             </motion.div>
           </div>
 

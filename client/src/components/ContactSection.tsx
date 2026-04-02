@@ -106,7 +106,7 @@ export default function ContactSection() {
                   <MapPin size={20} className="text-racing-red flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">Location</h4>
-                    <p className="font-body text-silver/70">Nabatieh, South Lebanon</p>
+                    <p className="font-body text-silver/70">1700-204, Nabatieh, South Lebanon, Lebanon</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -122,7 +122,9 @@ export default function ContactSection() {
                   <Phone size={20} className="text-racing-red flex-shrink-0 mt-1" />
                   <div>
                     <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">Phone</h4>
-                    <p className="font-body text-silver/70">Contact us via social media</p>
+                    <a href="tel:+96176535651" className="font-body text-silver/70 hover:text-racing-red transition-colors">
+                      +961 76 535 651
+                    </a>
                   </div>
                 </div>
               </div>

@@ -65,7 +65,7 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h4 className="font-display text-xs tracking-[0.2em] uppercase text-racing-red mb-4">
-              Follow Us
+              Contact
             </h4>
             <div className="flex gap-3 mb-4">
               {socialLinks.map((social) => (
@@ -81,6 +81,15 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+            <p className="font-body text-sm text-silver/50 leading-relaxed mb-2">
+              1700-204, Nabatieh, South Lebanon, Lebanon
+            </p>
+            <a
+              href="tel:+96176535651"
+              className="block font-body text-sm text-silver/50 hover:text-racing-red transition-colors mb-2"
+            >
+              +961 76 535 651
+            </a>
             <a
               href="mailto:info@lcclb.club"
               className="font-body text-sm text-silver/50 hover:text-racing-red transition-colors"
