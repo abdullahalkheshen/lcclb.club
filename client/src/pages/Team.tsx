@@ -25,8 +25,8 @@ const riders = [
   // Masters
   { name: "Monzer Toza", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Monzer Toza_047f8a9e.jpg" },
   { name: "Mohamad Ayash", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Mohamad Ayash_63abf230.jpg" },
-  { name: "Haidar Sabah", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Sabah_4f2d1c9e.jpg" },
-  { name: "Ali Atwi", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ali Atwi_7e8c3b2a.jpg" },
+  { name: "Haidar Sabah", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/HaidarSabah_fbfcc35d.webp" },
+  { name: "Ali Atwi", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/AliAtwi_710c1abc.webp" },
   { name: "Hussein Lizeik", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Hussein Lizeik_5002ad5e.jpg" },
   { name: "Mohamad Al Sayed", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Mohamad Al Sayed_bf29b8f9.jpg" },
   { name: "Rida Atwi", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Rida Atwi_33886f58.jpg" },
