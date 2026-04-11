@@ -11,22 +11,22 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const riders = [
   {
-    name: "Ramona Khalife",
-    category: "Junior",
-    achievement: "Women's TT National Champion 2024",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ramona Khalife - We will change her background_0a41205d.jpg",
-  },
-  {
-    name: "Hussein Lizeik",
-    category: "Masters",
-    achievement: "Masters National Champion",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Hussein Lizeik_5002ad5e.jpg",
-  },
-  {
-    name: "Hussien Hareb",
+    name: "Ramon Khalife",
     category: "Elite",
-    achievement: "Lebanon Cup Podium Finisher",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Hussien Hareb_0d0d0a7d.jpg",
+    achievement: "Women's TT National Champion 2024",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramon-khalife_f9e45c1b.png",
+  },
+  {
+    name: "Ali Atwi",
+    category: "Elite",
+    achievement: "National Road Race Champion",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ali Atwi_7e8c3b2a.jpg",
+  },
+  {
+    name: "Haidar Sabah",
+    category: "Elite",
+    achievement: "Lebanon Cup Winner 2024",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Sabah_4f2d1c9e.jpg",
   },
 ];
 
