@@ -16,27 +16,34 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const RACE_LIZEIK = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/lizeik_42758a09.jpg";
 const RACE_HAREB = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/hareb_991a0a8b.jpg";
 
-const featuredStory = {
-  category: "Race Results",
-  title: "LCC Dominates Lebanon Cup 2024 — Multiple Podium Finishes",
-  summary: "In a commanding display of team strength and individual brilliance, LCC riders secured multiple podium positions across all categories in the 2024 Lebanon Cup series, cementing the club's status as Lebanon's premier cycling team.",
+const getFeaturedStory = (t: any) => ({
+  category: t('newsPage.raceResults'),
+  title: t('newsPage.featuredTitle'),
+  summary: t('newsPage.featuredSummary'),
   date: "December 2024",
   image: RACE_LIZEIK,
-};
+});
 
-const newsArticles = [
-  { category: "Team Announcement", title: "2025 Season Kit Unveiled", summary: "LCC reveals the new season kit featuring updated design and partner branding.", date: "Jan 2025", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Line-Up-Team-iibtf_941be228.png" },
-  { category: "Race Results", title: "Women's TT National Title", summary: "Historic victory as Ramona Khalife claims the Women's Time Trial National Championship.", date: "Nov 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramona_0d6d5a75.jpg" },
-  { category: "Rider Stories", title: "Masters Champion Profile", summary: "An in-depth look at the journey of Hussein Lizeik, our Masters National Champion.", date: "Nov 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/sabah_c84c8fe6.jpg" },
-  { category: "Behind the Scenes", title: "Training Camp Recap", summary: "Inside LCC's pre-season training camp in the Lebanese mountains.", date: "Oct 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/moussa_5214407b.jpg" },
-  { category: "Race Results", title: "Selaata Race Highlights", summary: "LCC riders deliver strong performances at the annual Selaata road race.", date: "Sep 2024", image: RACE_HAREB },
-  { category: "Team Announcement", title: "New Partnership Announced", summary: "LCC welcomes a new official partner to support the 2024-2025 season.", date: "Aug 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ayash_26820c18.jpg" },
+const getNewsArticles = (t: any) => [
+  { category: t('newsPage.teamAnnouncement'), title: t('newsPage.article1Title'), summary: t('newsPage.article1Summary'), date: "Jan 2025", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Line-Up-Team-iibtf_941be228.png" },
+  { category: t('newsPage.raceResults'), title: t('newsPage.article2Title'), summary: t('newsPage.article2Summary'), date: "Nov 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramona_0d6d5a75.jpg" },
+  { category: t('newsPage.riderStories'), title: t('newsPage.article3Title'), summary: t('newsPage.article3Summary'), date: "Nov 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/sabah_c84c8fe6.jpg" },
+  { category: t('newsPage.behindTheScenes'), title: t('newsPage.article4Title'), summary: t('newsPage.article4Summary'), date: "Oct 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/moussa_5214407b.jpg" },
+  { category: t('newsPage.raceResults'), title: t('newsPage.article5Title'), summary: t('newsPage.article5Summary'), date: "Sep 2024", image: RACE_HAREB },
+  { category: t('newsPage.teamAnnouncement'), title: t('newsPage.article6Title'), summary: t('newsPage.article6Summary'), date: "Aug 2024", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ayash_26820c18.jpg" },
 ];
 
-const categories = ["All", "Race Results", "Rider Stories", "Team Announcement", "Behind the Scenes"];
+const getCategories = (t: any) => [
+  t('newsPage.all'),
+  t('newsPage.raceResults'),
+  t('newsPage.riderStories'),
+  t('newsPage.teamAnnouncement'),
+  t('newsPage.behindTheScenes'),
+];
 
 export default function News() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const { t } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState(t('newsPage.all'));
   const featuredRef = useRef(null);
   const featuredInView = useInView(featuredRef, { once: true, margin: "-100px" });
   const listRef = useRef(null);
@@ -44,7 +51,11 @@ export default function News() {
   const ctaRef = useRef(null);
   const ctaInView = useInView(ctaRef, { once: true, margin: "-100px" });
 
-  const filteredArticles = activeCategory === "All"
+  const categories = getCategories(t);
+  const newsArticles = getNewsArticles(t);
+  const featuredStory = getFeaturedStory(t);
+
+  const filteredArticles = activeCategory === t('newsPage.all')
     ? newsArticles
     : newsArticles.filter((a) => a.category === activeCategory);
 
@@ -52,10 +63,10 @@ export default function News() {
     <div className="min-h-screen bg-dark-surface text-warm-white">
       <Navbar />
       <PageHero
-        label="News"
-        title="LATEST FROM"
-        titleAccent="THE ROAD"
-        subtitle="Follow LCC's race results, rider stories, and team updates from across Lebanon and beyond."
+        label={t('newsPage.label')}
+        title={t('newsPage.title')}
+        titleAccent={t('newsPage.titleAccent')}
+        subtitle={t('newsPage.subtitle')}
       />
 
       {/* Featured Story */}
@@ -68,7 +79,7 @@ export default function News() {
             className="mb-8"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Featured Story
+              {t('newsPage.featuredStory')}
             </span>
           </motion.div>
 
@@ -103,7 +114,7 @@ export default function News() {
                 {featuredStory.summary}
               </p>
               <span className="inline-flex items-center gap-2 text-racing-red font-display text-sm tracking-[0.15em] uppercase group-hover:translate-x-2 transition-transform">
-                Read More <ArrowRight size={14} />
+                {t('newsPage.readMore')} <ArrowRight size={14} />
               </span>
             </div>
           </motion.div>
@@ -120,10 +131,10 @@ export default function News() {
             className="mb-12"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              All News
+              {t('newsPage.allNews')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              LATEST <span className="text-racing-red">UPDATES</span>
+              {t('newsPage.latestUpdates')} <span className="text-racing-red"></span>
             </h2>
           </motion.div>
 
@@ -193,32 +204,32 @@ export default function News() {
             transition={{ duration: 0.8 }}
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red block mb-4">
-              Stay Connected
+              {t('newsPage.stayConnected')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-              FOLLOW <span className="text-racing-red">LCC</span>
+              {t('newsPage.follow')} <span className="text-racing-red">LCC</span>
             </h2>
             <p className="font-body text-lg text-silver/70 max-w-xl mx-auto mb-10">
-              Stay up to date with race results, team news, and behind-the-scenes content.
+              {t('newsPage.followDesc')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/team"
                 className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
               >
-                Meet the Riders
+                {t('newsPage.meetRiders')}
               </Link>
               <Link
                 href="/record"
                 className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
               >
-                View Results
+                {t('newsPage.viewResults')}
               </Link>
               <Link
                 href="/partners"
                 className="inline-flex items-center gap-2 px-8 py-3 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300"
               >
-                Partner With LCC
+                {t('newsPage.partnerWithLCC')}
               </Link>
             </div>
           </motion.div>

@@ -14,44 +14,45 @@ import { Link } from "wouter";
 import { toast } from "sonner";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const advantages = [
-  { icon: Trophy, title: "Championship-Winning Team", description: "Align your brand with proven winners — multiple national titles and Lebanon Cup victories." },
-  { icon: Users, title: "Growing Fan Base", description: "Reach an engaged and expanding audience of cycling enthusiasts across Lebanon." },
-  { icon: Shield, title: "Disciplined Athletes", description: "Professional athletes who represent your brand with integrity and dedication." },
-  { icon: TrendingUp, title: "Leadership in Development", description: "Be part of the movement advancing cycling in Lebanon at every level." },
+const getAdvantages = (t: any) => [
+  { icon: Trophy, title: t('partnersPage.championship'), description: t('partnersPage.championshipDesc') },
+  { icon: Users, title: t('partnersPage.fanBase'), description: t('partnersPage.fanBaseDesc') },
+  { icon: Shield, title: t('partnersPage.athletes'), description: t('partnersPage.athletesDesc') },
+  { icon: TrendingUp, title: t('partnersPage.leadership'), description: t('partnersPage.leadershipDesc') },
 ];
 
-const tiers = [
+const getTiers = (t: any) => [
   {
-    name: "Title Sponsor",
+    name: t('partnersPage.titleSponsor'),
     highlight: true,
     features: ["Jersey front placement", "Naming rights", "Exclusive brand visibility at all events", "Social media feature campaigns", "Priority media coverage"],
   },
   {
-    name: "Official Partner",
+    name: t('partnersPage.official'),
     highlight: false,
     features: ["Category exclusivity", "Jersey placement", "Social media mentions", "Event branding", "Rider ambassador program"],
   },
   {
-    name: "Supporting Partner",
+    name: t('partnersPage.supporting'),
     highlight: false,
     features: ["Logo on team materials", "Event presence", "Social media acknowledgment", "Community engagement opportunities"],
   },
   {
-    name: "In-Kind Partner",
+    name: t('partnersPage.inKind'),
     highlight: false,
     features: ["Product/service exchange", "Team usage & feedback", "Brand exposure through team use", "Event participation"],
   },
 ];
 
-const metrics = [
-  { value: "50K+", label: "Social Media Reach" },
-  { value: "20+", label: "Events Per Year" },
-  { value: "100+", label: "Active Members" },
-  { value: "8+", label: "National Titles" },
+const getMetrics = (t: any) => [
+  { value: "50K+", label: t('partnersPage.socialReach') },
+  { value: "20+", label: t('partnersPage.eventsPerYear') },
+  { value: "100+", label: t('partnersPage.activeMembers') },
+  { value: "8+", label: t('partnersPage.nationalTitles') },
 ];
 
 export default function Partners() {
+  const { t } = useLanguage();
   const whyRef = useRef(null);
   const whyInView = useInView(whyRef, { once: true, margin: "-100px" });
   const tiersRef = useRef(null);
@@ -65,10 +66,10 @@ export default function Partners() {
     <div className="min-h-screen bg-dark-surface text-warm-white">
       <Navbar />
       <PageHero
-        label="Partners"
-        title="PARTNER WITH"
-        titleAccent="CHAMPIONS"
-        subtitle="Join Lebanon's winning cycling movement. Align your brand with excellence, community, and proven results."
+        label={t('partnersPage.label')}
+        title={t('partnersPage.title')}
+        titleAccent={t('partnersPage.titleAccent')}
+        subtitle={t('partnersPage.subtitle')}
       />
 
       {/* Why Partner With LCC */}
@@ -81,15 +82,15 @@ export default function Partners() {
             className="text-center mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Why Partner With Us
+              {t('partnersPage.whyPartner')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              THE LCC <span className="text-racing-red">ADVANTAGE</span>
+              {t('partnersPage.advantage')} <span className="text-racing-red"></span>
             </h2>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {advantages.map((adv, i) => (
+            {getAdvantages(t).map((adv, i) => (
               <motion.div
                 key={adv.title}
                 initial={{ opacity: 0, y: 30 }}
@@ -116,15 +117,15 @@ export default function Partners() {
             className="text-center mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Partnership Options
+              {t('partnersPage.tiers')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              PARTNERSHIP <span className="text-racing-red">TIERS</span>
+              {t('partnersPage.tiers')} <span className="text-racing-red"></span>
             </h2>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {tiers.map((tier, i) => (
+            {getTiers(t).map((tier, i) => (
               <motion.div
                 key={tier.name}
                 initial={{ opacity: 0, y: 30 }}
@@ -163,11 +164,11 @@ export default function Partners() {
             className="text-center"
           >
             <button
-              onClick={() => toast.info("Sponsor kit download coming soon!")}
+              onClick={() => toast.info(t('common.loading'))}
               className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
             >
               <Download size={16} />
-              Download Full Sponsor Kit
+              {t('partnersPage.downloadKit')}
             </button>
           </motion.div>
         </div>
@@ -183,15 +184,15 @@ export default function Partners() {
             className="text-center mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Proven Impact
+              {t('partnersPage.impact')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              THE <span className="text-racing-red">NUMBERS</span>
+              {t('partnersPage.numbers')} <span className="text-racing-red"></span>
             </h2>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {metrics.map((metric, i) => (
+            {getMetrics(t).map((metric, i) => (
               <motion.div
                 key={metric.label}
                 initial={{ opacity: 0, y: 30 }}
@@ -212,10 +213,10 @@ export default function Partners() {
             className="max-w-2xl mx-auto p-8 bg-charcoal border border-white/5"
           >
             <p className="font-body text-lg text-silver italic text-center leading-relaxed">
-              "Partnering with LCC has given our brand incredible visibility in the Lebanese sports community. Their professionalism and competitive success make them the ideal partner."
+              "{t('partnersPage.testimonial')}"
             </p>
             <p className="font-display text-sm text-racing-red text-center mt-4 tracking-[0.15em] uppercase">
-              — LCC Partner
+              — {t('partnersPage.testimonialAuthor')}
             </p>
           </motion.div>
         </div>
@@ -231,13 +232,13 @@ export default function Partners() {
             className="text-center mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Our Partners
+              {t('partners.label')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              PROUD <span className="text-racing-red">SPONSORS</span>
+              {t('partners.title')} <span className="text-racing-red">{t('partners.titleAccent')}</span>
             </h2>
             <p className="font-body text-silver/70 mt-4 max-w-2xl mx-auto">
-              We're grateful to our partners who support Lebanese cycling excellence.
+              {t('partners.description')}
             </p>
           </motion.div>
 
@@ -299,25 +300,25 @@ export default function Partners() {
           >
             <div className="w-16 h-[3px] bg-racing-red mx-auto mb-8" />
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              START YOUR <span className="text-racing-red">PARTNERSHIP</span>
+              {t('partnersPage.partnership')} <span className="text-racing-red"></span>
             </h2>
             <p className="font-body text-lg text-silver/70 max-w-xl mx-auto mb-10">
-              Ready to align your brand with Lebanese cycling excellence? Let's talk.
+              {t('partnersPage.partnershipDesc')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300"
               >
-                Contact Us
+                {t('partnersPage.contactUs')}
                 <ArrowRight size={16} />
               </Link>
               <button
-                onClick={() => toast.info("Media kit download coming soon!")}
+                onClick={() => toast.info(t('common.loading'))}
                 className="inline-flex items-center gap-2 px-10 py-4 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
               >
                 <Download size={16} />
-                Download Media Kit
+                {t('partnersPage.downloadKit')}
               </button>
             </div>
           </motion.div>

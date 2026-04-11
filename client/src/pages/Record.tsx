@@ -15,40 +15,41 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const GALLERY_1 = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/lizeik_42758a09.jpg";
 
-const majorResults = [
-  { icon: Crown, category: "National Championships", count: "8+", description: "National titles across MTB, Road, TT, and Masters categories" },
-  { icon: Medal, category: "Lebanon Cup", count: "3+", description: "Lebanon Cup victories establishing LCC as a dominant force" },
-  { icon: Award, category: "Regional Podiums", count: "20+", description: "Podium finishes in the 2023-2024 season alone" },
-  { icon: TrendingUp, category: "International", count: "5+", description: "International race participations and results" },
+const getMajorResults = (t: any) => [
+  { icon: Crown, category: t('recordPage.nationalChampionships'), count: "8+", description: t('recordPage.nationalDesc') },
+  { icon: Medal, category: t('recordPage.lebanonCup'), count: "3+", description: t('recordPage.lebanonCupDesc') },
+  { icon: Award, category: t('recordPage.regionalPodiums'), count: "20+", description: t('recordPage.regionalDesc') },
+  { icon: TrendingUp, category: t('recordPage.international'), count: "5+", description: t('recordPage.internationalDesc') },
 ];
 
-const resultsArchive = [
-  { year: "2024", event: "Lebanon Cup", category: "Elite Men", rider: "Team LCC", result: "1st Place" },
-  { year: "2024", event: "National TT Championship", category: "Elite Women", rider: "LCC Rider", result: "1st Place" },
-  { year: "2024", event: "National Championship", category: "Masters", rider: "LCC Rider", result: "1st Place" },
-  { year: "2024", event: "Selaata Race", category: "Elite Men", rider: "Team LCC", result: "Multiple Podiums" },
-  { year: "2023", event: "National Road Championship", category: "Elite Men", rider: "LCC Rider", result: "Podium" },
-  { year: "2023", event: "Lebanon Cup Series", category: "Elite Men", rider: "Team LCC", result: "Top 3" },
-  { year: "2022", event: "Lebanon Cup", category: "Elite Men", rider: "Team LCC", result: "1st Place" },
-  { year: "2019", event: "National MTB Championship", category: "Elite Men", rider: "LCC Rider", result: "1st Place" },
-  { year: "2018", event: "National Road Championship", category: "Elite Men", rider: "LCC Rider", result: "Podium" },
+const getResultsArchive = (t: any) => [
+  { year: "2024", event: t('recordPage.event1'), category: t('recordPage.eliteMen'), rider: "Team LCC", result: t('recordPage.firstPlace') },
+  { year: "2024", event: t('recordPage.event2'), category: t('recordPage.eliteWomen'), rider: "LCC Rider", result: t('recordPage.firstPlace') },
+  { year: "2024", event: t('recordPage.event3'), category: t('recordPage.masters'), rider: "LCC Rider", result: t('recordPage.firstPlace') },
+  { year: "2024", event: t('recordPage.event4'), category: t('recordPage.eliteMen'), rider: "Team LCC", result: t('recordPage.multiplePodiums') },
+  { year: "2023", event: t('recordPage.event5'), category: t('recordPage.eliteMen'), rider: "LCC Rider", result: t('recordPage.podium') },
+  { year: "2023", event: t('recordPage.event6'), category: t('recordPage.eliteMen'), rider: "Team LCC", result: t('recordPage.top3') },
+  { year: "2022", event: t('recordPage.lebanonCup'), category: t('recordPage.eliteMen'), rider: "Team LCC", result: t('recordPage.firstPlace') },
+  { year: "2019", event: t('recordPage.event7'), category: t('recordPage.eliteMen'), rider: "LCC Rider", result: t('recordPage.firstPlace') },
+  { year: "2018", event: t('recordPage.event8'), category: t('recordPage.eliteMen'), rider: "LCC Rider", result: t('recordPage.podium') },
 ];
 
-const championships = [
-  { title: "Lebanon Cup Champions 2024", description: "Dominant performance across the entire Lebanon Cup series, securing the overall team title.", badge: "Team Title" },
-  { title: "Women's TT National Champion 2024", description: "Historic victory in the Women's Time Trial, showcasing LCC's commitment to women's cycling.", badge: "Individual Title" },
-  { title: "Masters National Champion 2024", description: "Proving that excellence has no age limit, our Masters rider claimed the national title.", badge: "Individual Title" },
+const getChampionships = (t: any) => [
+  { title: t('recordPage.champ1Title'), description: t('recordPage.champ1Desc'), badge: t('recordPage.teamTitle') },
+  { title: t('recordPage.champ2Title'), description: t('recordPage.champ2Desc'), badge: t('recordPage.individualTitle') },
+  { title: t('recordPage.champ3Title'), description: t('recordPage.champ3Desc'), badge: t('recordPage.individualTitle') },
 ];
 
-const testimonials = [
-  { quote: "LCC has transformed Lebanese cycling. Their discipline and commitment are unmatched.", author: "Sports Journalist", role: "Lebanese Sports Media" },
-  { quote: "Being part of LCC pushed me to levels I never thought possible. This team is family.", author: "LCC Rider", role: "National Champion" },
+const getTestimonials = (t: any) => [
+  { quote: t('recordPage.testimonial1'), author: t('recordPage.author1'), role: t('recordPage.role1') },
+  { quote: t('recordPage.testimonial2'), author: t('recordPage.author2'), role: t('recordPage.role2') },
 ];
 
-const yearFilters = ["All", "2024", "2023", "2022", "2019", "2018"];
+const getYearFilters = (t: any) => [t('recordPage.all'), "2024", "2023", "2022", "2019", "2018"];
 
 export default function Record() {
-  const [activeYear, setActiveYear] = useState("All");
+  const { t } = useLanguage();
+  const [activeYear, setActiveYear] = useState(t('recordPage.all'));
   const summaryRef = useRef(null);
   const summaryInView = useInView(summaryRef, { once: true, margin: "-100px" });
   const archiveRef = useRef(null);
@@ -58,7 +59,13 @@ export default function Record() {
   const testRef = useRef(null);
   const testInView = useInView(testRef, { once: true, margin: "-100px" });
 
-  const filteredResults = activeYear === "All"
+  const majorResults = getMajorResults(t);
+  const resultsArchive = getResultsArchive(t);
+  const championships = getChampionships(t);
+  const testimonials = getTestimonials(t);
+  const yearFilters = getYearFilters(t);
+
+  const filteredResults = activeYear === t('recordPage.all')
     ? resultsArchive
     : resultsArchive.filter((r) => r.year === activeYear);
 
@@ -66,10 +73,10 @@ export default function Record() {
     <div className="min-h-screen bg-dark-surface text-warm-white">
       <Navbar />
       <PageHero
-        label="Our Record"
-        title="OUR"
-        titleAccent="PROOF."
-        subtitle="Every result, every podium, every milestone. The numbers tell our story."
+        label={t('recordPage.label')}
+        title={t('recordPage.title')}
+        titleAccent={t('recordPage.titleAccent')}
+        subtitle={t('recordPage.subtitle')}
         image={GALLERY_1}
       />
 
@@ -83,10 +90,10 @@ export default function Record() {
             className="mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Results Summary
+              {t('recordPage.resultsSummary')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              WINNING IS A <span className="text-racing-red">HABIT</span>
+              {t('recordPage.winningIs')} <span className="text-racing-red">{t('recordPage.habit')}</span>
             </h2>
           </motion.div>
 
@@ -119,10 +126,10 @@ export default function Record() {
             className="mb-12"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Full Archive
+              {t('recordPage.fullArchive')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              RESULTS <span className="text-racing-red">ARCHIVE</span>
+              {t('recordPage.results')} <span className="text-racing-red">{t('recordPage.archive')}</span>
             </h2>
           </motion.div>
 
@@ -148,11 +155,11 @@ export default function Record() {
             <table className="w-full">
               <thead>
                 <tr className="border-b border-white/10">
-                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4">Year</th>
-                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4">Event</th>
-                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4 hidden md:table-cell">Category</th>
-                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4 hidden lg:table-cell">Rider</th>
-                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4">Result</th>
+                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4">{t('recordPage.year')}</th>
+                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4">{t('recordPage.event')}</th>
+                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4 hidden md:table-cell">{t('recordPage.category')}</th>
+                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4 hidden lg:table-cell">{t('recordPage.rider')}</th>
+                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4">{t('recordPage.result')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -170,7 +177,7 @@ export default function Record() {
                     <td className="font-body text-sm text-silver/70 py-4 pr-4 hidden lg:table-cell">{result.rider}</td>
                     <td className="py-4">
                       <span className={`font-display text-xs tracking-[0.15em] uppercase px-3 py-1 ${
-                        result.result.includes("1st") ? "bg-racing-red/20 text-racing-red" : "bg-white/5 text-silver"
+                        result.result.includes(t('recordPage.firstPlace')) ? "bg-racing-red/20 text-racing-red" : "bg-white/5 text-silver"
                       }`}>
                         {result.result}
                       </span>
@@ -193,10 +200,10 @@ export default function Record() {
             className="mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Highlights
+              {t('recordPage.highlights')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              CHAMPIONSHIP <span className="text-racing-red">PROFILES</span>
+              {t('recordPage.championship')} <span className="text-racing-red">{t('recordPage.profiles')}</span>
             </h2>
           </motion.div>
 
@@ -235,10 +242,10 @@ export default function Record() {
             className="text-center mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              What They Say
+              {t('recordPage.whatTheySay')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              VOICES OF <span className="text-racing-red">LCC</span>
+              {t('recordPage.voicesOf')} <span className="text-racing-red">LCC</span>
             </h2>
           </motion.div>
 
@@ -271,13 +278,13 @@ export default function Record() {
             className="text-center mt-16"
           >
             <h3 className="font-display text-3xl font-bold text-white mb-4">
-              BE PART OF THE <span className="text-racing-red">NEXT VICTORY</span>
+              {t('recordPage.bePartOf')} <span className="text-racing-red">{t('recordPage.nextVictory')}</span>
             </h3>
             <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300 mt-4"
             >
-              Join LCC
+              {t('recordPage.joinLCC')}
               <ArrowRight size={16} />
             </Link>
           </motion.div>

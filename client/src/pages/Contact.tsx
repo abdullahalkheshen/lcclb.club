@@ -14,15 +14,15 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const RACE_SABAH = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/sabah_c84c8fe6.jpg";
 
-const riderFAQ = [
-  { q: "What are the team requirements?", a: "We welcome riders of all levels. Competitive riders should have racing experience, while development riders need basic cycling fitness and a commitment to training." },
-  { q: "Is there a tryout process?", a: "Yes, we hold seasonal tryouts. Contact us to learn about the next tryout dates and what to prepare." },
-  { q: "Are there membership fees?", a: "There is an annual membership fee that covers team kit, training programs, and event participation. Contact us for current rates." },
+const getRiderFAQ = (t: any) => [
+  { q: t('contactPage.riderFAQ1Q'), a: t('contactPage.riderFAQ1A') },
+  { q: t('contactPage.riderFAQ2Q'), a: t('contactPage.riderFAQ2A') },
+  { q: t('contactPage.riderFAQ3Q'), a: t('contactPage.riderFAQ3A') },
 ];
 
-const sponsorFAQ = [
-  { q: "What sponsorship options are available?", a: "We offer four tiers: Title Sponsor, Official Partner, Supporting Partner, and In-Kind Partner. Each tier includes different levels of brand visibility and engagement." },
-  { q: "How do I become a partner?", a: "Fill out the partnership inquiry form or contact us directly. We'll schedule a meeting to discuss how we can create value together." },
+const getSponsorFAQ = (t: any) => [
+  { q: t('contactPage.sponsorFAQ1Q'), a: t('contactPage.sponsorFAQ1A') },
+  { q: t('contactPage.sponsorFAQ2Q'), a: t('contactPage.sponsorFAQ2A') },
 ];
 
 const socialLinks = [
@@ -63,6 +63,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function Contact() {
+  const { t } = useLanguage();
   const formsRef = useRef(null);
   const formsInView = useInView(formsRef, { once: true, margin: "-100px" });
   const faqRef = useRef(null);
@@ -75,13 +76,13 @@ export default function Contact() {
 
   const handleRiderSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Application submitted! We'll be in touch soon.");
+    toast.success(t('contactPage.riderSubmitSuccess'));
     setRiderForm({ name: "", email: "", phone: "", category: "", experience: "" });
   };
 
   const handlePartnerSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Partnership inquiry sent! We'll contact you shortly.");
+    toast.success(t('contactPage.partnerSubmitSuccess'));
     setPartnerForm({ company: "", contact: "", email: "", interest: "", message: "" });
   };
 
@@ -92,10 +93,10 @@ export default function Contact() {
     <div className="min-h-screen bg-dark-surface text-warm-white">
       <Navbar />
       <PageHero
-        label="Contact"
-        title="GET IN"
-        titleAccent="TOUCH"
-        subtitle="Whether you're a potential rider, sponsor, or partner, we'd love to hear from you."
+        label={t('contactPage.label')}
+        title={t('contactPage.title')}
+        titleAccent={t('contactPage.titleAccent')}
+        subtitle={t('contactPage.subtitle')}
         image={RACE_SABAH}
       />
 
@@ -109,10 +110,10 @@ export default function Contact() {
             className="text-center mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              How Can We Help?
+              {t('contactPage.howCanWeHelp')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              READY TO JOIN THE <span className="text-racing-red">LCC LEGACY?</span>
+              {t('contactPage.readyToJoin')} <span className="text-racing-red">{t('contactPage.readyToJoinAccent')}</span>
             </h2>
           </motion.div>
 
@@ -125,45 +126,45 @@ export default function Contact() {
               className="p-8 bg-charcoal border border-white/5"
             >
               <h3 className="font-display text-2xl font-bold text-white tracking-wide uppercase mb-2">
-                Join the <span className="text-racing-red">Team</span>
+                {t('contactPage.joinTeam')} <span className="text-racing-red"></span>
               </h3>
               <p className="font-body text-sm text-silver/60 mb-8">
-                Interested in riding with LCC? Fill out the form below.
+                {t('contactPage.joinTeamDesc')}
               </p>
               <form onSubmit={handleRiderSubmit} className="space-y-6">
                 <div>
-                  <label className={labelClass}>Full Name</label>
-                  <input type="text" value={riderForm.name} onChange={(e) => setRiderForm({ ...riderForm, name: e.target.value })} required className={inputClass} placeholder="Your name" />
+                  <label className={labelClass}>{t('contactPage.fullName')}</label>
+                  <input type="text" value={riderForm.name} onChange={(e) => setRiderForm({ ...riderForm, name: e.target.value })} required className={inputClass} placeholder={t('contactPage.yourName')} />
                 </div>
                 <div>
-                  <label className={labelClass}>Email</label>
+                  <label className={labelClass}>{t('contactPage.email')}</label>
                   <input type="email" value={riderForm.email} onChange={(e) => setRiderForm({ ...riderForm, email: e.target.value })} required className={inputClass} placeholder="your@email.com" />
                 </div>
                 <div>
-                  <label className={labelClass}>Phone</label>
+                  <label className={labelClass}>{t('contactPage.phone')}</label>
                   <input type="tel" value={riderForm.phone} onChange={(e) => setRiderForm({ ...riderForm, phone: e.target.value })} className={inputClass} placeholder="+961 XX XXX XXX" />
                 </div>
                 <div>
-                  <label className={labelClass}>Racing Category</label>
+                  <label className={labelClass}>{t('contactPage.racingCategory')}</label>
                   <select
                     value={riderForm.category}
                     onChange={(e) => setRiderForm({ ...riderForm, category: e.target.value })}
                     className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none transition-colors duration-300"
                   >
-                    <option value="" className="bg-charcoal">Select category</option>
-                    <option value="elite-men" className="bg-charcoal">Elite Men</option>
-                    <option value="elite-women" className="bg-charcoal">Elite Women</option>
-                    <option value="masters" className="bg-charcoal">Masters</option>
+                    <option value="" className="bg-charcoal">{t('contactPage.selectCategory')}</option>
+                    <option value="elite-men" className="bg-charcoal">{t('contactPage.eliteMen')}</option>
+                    <option value="elite-women" className="bg-charcoal">{t('contactPage.eliteWomen')}</option>
+                    <option value="masters" className="bg-charcoal">{t('contactPage.masters')}</option>
                     <option value="u23" className="bg-charcoal">U23</option>
-                    <option value="development" className="bg-charcoal">Development</option>
+                    <option value="development" className="bg-charcoal">{t('contactPage.development')}</option>
                   </select>
                 </div>
                 <div>
-                  <label className={labelClass}>Experience Level</label>
-                  <input type="text" value={riderForm.experience} onChange={(e) => setRiderForm({ ...riderForm, experience: e.target.value })} className={inputClass} placeholder="Describe your cycling experience" />
+                  <label className={labelClass}>{t('contactPage.experienceLevel')}</label>
+                  <input type="text" value={riderForm.experience} onChange={(e) => setRiderForm({ ...riderForm, experience: e.target.value })} className={inputClass} placeholder={t('contactPage.describeExperience')} />
                 </div>
                 <button type="submit" className="w-full py-4 bg-racing-red text-white font-display text-sm tracking-[0.2em] uppercase hover:bg-racing-red/90 transition-all duration-300">
-                  Submit Application
+                  {t('contactPage.submitApplication')}
                 </button>
               </form>
             </motion.div>
@@ -176,50 +177,50 @@ export default function Contact() {
               className="p-8 bg-charcoal border border-white/5"
             >
               <h3 className="font-display text-2xl font-bold text-white tracking-wide uppercase mb-2">
-                Partner <span className="text-racing-red">With Us</span>
+                {t('contactPage.partnerWithUs')} <span className="text-racing-red"></span>
               </h3>
               <p className="font-body text-sm text-silver/60 mb-8">
-                Interested in sponsoring or partnering with LCC?
+                {t('contactPage.partnerWithUsDesc')}
               </p>
               <form onSubmit={handlePartnerSubmit} className="space-y-6">
                 <div>
-                  <label className={labelClass}>Company Name</label>
-                  <input type="text" value={partnerForm.company} onChange={(e) => setPartnerForm({ ...partnerForm, company: e.target.value })} required className={inputClass} placeholder="Your company" />
+                  <label className={labelClass}>{t('contactPage.companyName')}</label>
+                  <input type="text" value={partnerForm.company} onChange={(e) => setPartnerForm({ ...partnerForm, company: e.target.value })} required className={inputClass} placeholder={t('contactPage.yourCompany')} />
                 </div>
                 <div>
-                  <label className={labelClass}>Contact Name</label>
-                  <input type="text" value={partnerForm.contact} onChange={(e) => setPartnerForm({ ...partnerForm, contact: e.target.value })} required className={inputClass} placeholder="Your name" />
+                  <label className={labelClass}>{t('contactPage.contactName')}</label>
+                  <input type="text" value={partnerForm.contact} onChange={(e) => setPartnerForm({ ...partnerForm, contact: e.target.value })} required className={inputClass} placeholder={t('contactPage.yourName')} />
                 </div>
                 <div>
-                  <label className={labelClass}>Email</label>
+                  <label className={labelClass}>{t('contactPage.email')}</label>
                   <input type="email" value={partnerForm.email} onChange={(e) => setPartnerForm({ ...partnerForm, email: e.target.value })} required className={inputClass} placeholder="your@company.com" />
                 </div>
                 <div>
-                  <label className={labelClass}>Partnership Interest</label>
+                  <label className={labelClass}>{t('contactPage.partnershipInterest')}</label>
                   <select
                     value={partnerForm.interest}
                     onChange={(e) => setPartnerForm({ ...partnerForm, interest: e.target.value })}
                     className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none transition-colors duration-300"
                   >
-                    <option value="" className="bg-charcoal">Select interest</option>
-                    <option value="title" className="bg-charcoal">Title Sponsor</option>
-                    <option value="official" className="bg-charcoal">Official Partner</option>
-                    <option value="supporting" className="bg-charcoal">Supporting Partner</option>
-                    <option value="in-kind" className="bg-charcoal">In-Kind Partner</option>
+                    <option value="" className="bg-charcoal">{t('contactPage.selectInterest')}</option>
+                    <option value="title" className="bg-charcoal">{t('partnersPage.titleSponsor')}</option>
+                    <option value="official" className="bg-charcoal">{t('partnersPage.official')}</option>
+                    <option value="supporting" className="bg-charcoal">{t('partnersPage.supporting')}</option>
+                    <option value="in-kind" className="bg-charcoal">{t('partnersPage.inKind')}</option>
                   </select>
                 </div>
                 <div>
-                  <label className={labelClass}>Message</label>
+                  <label className={labelClass}>{t('contactPage.message')}</label>
                   <textarea
                     value={partnerForm.message}
                     onChange={(e) => setPartnerForm({ ...partnerForm, message: e.target.value })}
                     rows={4}
                     className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none transition-colors duration-300 resize-none placeholder:text-silver/30"
-                    placeholder="Tell us about your partnership vision..."
+                    placeholder={t('contactPage.partnershipVision')}
                   />
                 </div>
                 <button type="submit" className="w-full py-4 bg-racing-red text-white font-display text-sm tracking-[0.2em] uppercase hover:bg-racing-red/90 transition-all duration-300">
-                  Send Inquiry
+                  {t('contactPage.sendInquiry')}
                 </button>
               </form>
             </motion.div>
@@ -237,10 +238,10 @@ export default function Contact() {
             className="text-center mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Common Questions
+              {t('contactPage.commonQuestions')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              FAQ
+              {t('contactPage.faq')}
             </h2>
           </motion.div>
 
@@ -252,10 +253,10 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h3 className="font-display text-xl font-bold text-white tracking-wide uppercase mb-6">
-                For <span className="text-racing-red">Riders</span>
+                {t('contactPage.forRiders')} <span className="text-racing-red"></span>
               </h3>
               <div>
-                {riderFAQ.map((item) => (
+                {getRiderFAQ(t).map((item) => (
                   <FAQItem key={item.q} q={item.q} a={item.a} />
                 ))}
               </div>
@@ -268,10 +269,10 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <h3 className="font-display text-xl font-bold text-white tracking-wide uppercase mb-6">
-                For <span className="text-racing-red">Sponsors</span>
+                {t('contactPage.forSponsors')} <span className="text-racing-red"></span>
               </h3>
               <div>
-                {sponsorFAQ.map((item) => (
+                {getSponsorFAQ(t).map((item) => (
                   <FAQItem key={item.q} q={item.q} a={item.a} />
                 ))}
               </div>
@@ -290,10 +291,10 @@ export default function Contact() {
             className="text-center mb-12"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red block mb-4">
-              Find Us
+              {t('contactPage.findUs')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
-              VISIT <span className="text-racing-red">US</span>
+              {t('contactPage.visitUs')} <span className="text-racing-red"></span>
             </h2>
           </motion.div>
 
@@ -305,7 +306,7 @@ export default function Contact() {
               className="text-center"
             >
               <MapPin size={24} className="text-racing-red mx-auto mb-3" />
-              <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">Address</h4>
+              <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">{t('contactPage.address')}</h4>
               <p className="font-body text-sm text-silver/70">1700-204, Nabatieh, South Lebanon, Lebanon</p>
             </motion.div>
             <motion.div
@@ -315,7 +316,7 @@ export default function Contact() {
               className="text-center"
             >
               <Mail size={24} className="text-racing-red mx-auto mb-3" />
-              <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">Email</h4>
+              <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">{t('contactPage.emailLabel')}</h4>
               <a href="mailto:info@lcclb.club" className="font-body text-sm text-silver/70 hover:text-racing-red transition-colors">
                 info@lcclb.club
               </a>
@@ -327,7 +328,7 @@ export default function Contact() {
               className="text-center"
             >
               <Phone size={24} className="text-racing-red mx-auto mb-3" />
-              <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">Phone</h4>
+              <h4 className="font-display text-sm tracking-[0.15em] uppercase text-white mb-1">{t('contactPage.phoneLabel')}</h4>
               <a href="tel:+96176535651" className="font-body text-sm text-silver/70 hover:text-racing-red transition-colors">
                 +961 76 535 651
               </a>

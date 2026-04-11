@@ -15,23 +15,24 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Line-Up-Team-iibtf_941be228.png";
 
-const milestones = [
-  { year: "2017", title: "Club Founded", description: "LCC was established with a vision to develop Lebanese cycling and build a championship-winning team." },
-  { year: "2018", title: "First Competitive Season", description: "Entered MTB and Road cycling competitions, laying the foundation for future success." },
-  { year: "2019", title: "First National Champion", description: "Won our first national championship title, proving LCC's competitive potential." },
-  { year: "2020", title: "Expanding Categories", description: "Added Women's and Masters categories, broadening our competitive reach and inclusivity." },
-  { year: "2022", title: "Lebanon Cup Victory", description: "Secured the Lebanon Cup, establishing LCC as a dominant force in Lebanese cycling." },
-  { year: "2024", title: "Record-Breaking Season", description: "Lebanon Cup Champions, Women's TT National Champion, Masters National Champion, 20+ podiums." },
+const getMilestones = (t: any) => [
+  { year: "2017", title: t('legacyPage.milestone1Title'), description: t('legacyPage.milestone1Desc') },
+  { year: "2018", title: t('legacyPage.milestone2Title'), description: t('legacyPage.milestone2Desc') },
+  { year: "2019", title: t('legacyPage.milestone3Title'), description: t('legacyPage.milestone3Desc') },
+  { year: "2020", title: t('legacyPage.milestone4Title'), description: t('legacyPage.milestone4Desc') },
+  { year: "2022", title: t('legacyPage.milestone5Title'), description: t('legacyPage.milestone5Desc') },
+  { year: "2024", title: t('legacyPage.milestone6Title'), description: t('legacyPage.milestone6Desc') },
 ];
 
-const coreValues = [
-  { icon: Target, title: "Excellence", description: "Relentless pursuit of competitive success and personal growth." },
-  { icon: Users, title: "Community", description: "Building a unified cycling movement that welcomes all levels." },
-  { icon: TrendingUp, title: "Development", description: "Advancing cycling in Lebanon through youth programs and training." },
-  { icon: Heart, title: "Sportsmanship", description: "Competing with discipline, respect, and integrity at all times." },
+const getCoreValues = (t: any) => [
+  { icon: Target, title: t('legacyPage.excellence'), description: t('legacyPage.excellenceDesc') },
+  { icon: Users, title: t('legacyPage.community'), description: t('legacyPage.communityDesc') },
+  { icon: TrendingUp, title: t('legacyPage.development'), description: t('legacyPage.developmentDesc') },
+  { icon: Heart, title: t('legacyPage.sportsmanship'), description: t('legacyPage.sportsmanshipDesc') },
 ];
 
 export default function Legacy() {
+  const { t } = useLanguage();
   const storyRef = useRef(null);
   const storyInView = useInView(storyRef, { once: true, margin: "-100px" });
   const valuesRef = useRef(null);
@@ -39,14 +40,17 @@ export default function Legacy() {
   const visionRef = useRef(null);
   const visionInView = useInView(visionRef, { once: true, margin: "-100px" });
 
+  const milestones = getMilestones(t);
+  const coreValues = getCoreValues(t);
+
   return (
     <div className="min-h-screen bg-dark-surface text-warm-white">
       <Navbar />
       <PageHero
-        label="Our Legacy"
-        title="THE STORY BEHIND"
-        titleAccent="THE VICTORIES"
-        subtitle="Since 2017, LCC has been more than a team — we are a movement shaping Lebanese cycling."
+        label={t('legacyPage.label')}
+        title={t('legacyPage.title')}
+        titleAccent={t('legacyPage.titleAccent')}
+        subtitle={t('legacyPage.subtitle')}
         image={ABOUT_IMAGE}
       />
 
@@ -60,10 +64,10 @@ export default function Legacy() {
             className="mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Our Journey
+              {t('legacyPage.ourJourney')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              FROM STARTUP TO <span className="text-racing-red">CHAMPIONS</span>
+              {t('legacyPage.fromStartup')} <span className="text-racing-red">{t('legacyPage.toChampions')}</span>
             </h2>
           </motion.div>
 
@@ -110,13 +114,13 @@ export default function Legacy() {
             className="text-center mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              What Drives Us
+              {t('legacyPage.whatDrivesUs')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-              OUR <span className="text-racing-red">MISSION</span>
+              {t('legacyPage.ourMission')} <span className="text-racing-red"></span>
             </h2>
             <p className="font-body text-lg text-silver/70 max-w-2xl mx-auto leading-relaxed">
-              To develop champions and advance cycling in Lebanon. We believe in building a culture of discipline, respect, and continuous improvement that extends beyond the road.
+              {t('legacyPage.missionStatement')}
             </p>
           </motion.div>
 
@@ -158,29 +162,29 @@ export default function Legacy() {
             transition={{ duration: 0.8 }}
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red block mb-4">
-              The Next Chapter
+              {t('legacyPage.nextChapter')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              EXPANDING YOUTH DEVELOPMENT.
+              {t('legacyPage.expandingYouth')}
               <br />
-              <span className="text-racing-red">DOMINATING NATIONAL COMPETITIONS.</span>
+              <span className="text-racing-red">{t('legacyPage.dominatingNational')}</span>
             </h2>
             <p className="font-body text-lg text-silver/70 max-w-xl mx-auto mb-10">
-              The future of LCC is being written every day. Join us as we continue to push the boundaries of Lebanese cycling.
+              {t('legacyPage.futureVision')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300"
               >
-                Join Our Legacy
+                {t('legacyPage.joinLegacy')}
                 <ArrowRight size={16} />
               </Link>
               <Link
                 href="/partners"
                 className="inline-flex items-center gap-2 px-10 py-4 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
               >
-                Support Our Mission
+                {t('legacyPage.supportMission')}
               </Link>
             </div>
           </motion.div>
