@@ -12,6 +12,7 @@ import Record from "./pages/Record";
 import News from "./pages/News";
 import Partners from "./pages/Partners";
 import Contact from "./pages/Contact";
+import Calendar from "./pages/Calendar";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function Router() {
       <Route path={"/news"} component={News} />
       <Route path={"/partners"} component={Partners} />
       <Route path={"/contact"} component={Contact} />
+      <Route path={"/calendar"} component={Calendar} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

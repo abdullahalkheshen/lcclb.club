@@ -6,7 +6,8 @@
     "record": "RECORDS",
     "news": "ACTUALITÉS",
     "partners": "PARTENAIRES",
-    "contact": "CONTACT"
+    "contact": "CONTACT",
+    "calendar": "CALENDRIER"
   },
   "hero": {
     "subtitle": "CHAMPIONS NATIONAUX · VAINQUEURS DE LA COUPE DU LIBAN · DEPUIS 2017",
@@ -178,6 +179,32 @@
     "riderFAQ": "FAQ Coureurs",
     "partnerFAQ": "FAQ Partenaires",
     "finalCTA": "PRÊT À NOUS REJOINDRE?"
+  },
+  "calendar": {
+    "label": "CALENDRIER 2026",
+    "title": "CALENDRIER",
+    "titleAccent": "CYCLISTE",
+    "subtitle": "Marquez votre calendrier pour les courses, championnats et événements à venir du LCC tout au long de 2026.",
+    "upcomingEvents": "Événements à Venir",
+    "filterByCategory": "Filtrer par Catégorie",
+    "filterByMonth": "Filtrer par Mois",
+    "allCategories": "Toutes les Catégories",
+    "race": "Course",
+    "training": "Entraînement",
+    "social": "Social",
+    "noEvents": "Aucun événement trouvé pour les filtres sélectionnés.",
+    "eventDate": "Date",
+    "eventTime": "Heure",
+    "eventLocation": "Lieu",
+    "eventCategory": "Catégorie",
+    "eventDescription": "Description",
+    "june": "Juin",
+    "july": "Juillet",
+    "august": "Août",
+    "september": "Septembre",
+    "october": "Octobre",
+    "november": "Novembre",
+    "december": "Décembre"
   },
   "common": {
     "learnMore": "En Savoir Plus",

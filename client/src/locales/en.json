@@ -6,7 +6,8 @@
     "record": "RECORD",
     "news": "NEWS",
     "partners": "PARTNERS",
-    "contact": "CONTACT"
+    "contact": "CONTACT",
+    "calendar": "CALENDAR"
   },
   "hero": {
     "subtitle": "NATIONAL CHAMPIONS · LEBANON CUP WINNERS · SINCE 2017",
@@ -209,6 +210,32 @@
     "hashtag": "#RideBeyond #WeAreLCC",
     "navigation": "NAVIGATION",
     "contact": "CONTACT"
+  },
+  "calendar": {
+    "label": "2026 SCHEDULE",
+    "title": "CYCLING",
+    "titleAccent": "CALENDAR",
+    "subtitle": "Mark your calendar for the upcoming LCC races, championships, and events throughout 2026.",
+    "upcomingEvents": "Upcoming Events",
+    "filterByCategory": "Filter by Category",
+    "filterByMonth": "Filter by Month",
+    "allCategories": "All Categories",
+    "race": "Race",
+    "training": "Training",
+    "social": "Social",
+    "noEvents": "No events found for the selected filters.",
+    "eventDate": "Date",
+    "eventTime": "Time",
+    "eventLocation": "Location",
+    "eventCategory": "Category",
+    "eventDescription": "Description",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
   },
   "common": {
     "learnMore": "Learn More",

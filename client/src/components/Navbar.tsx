@@ -18,6 +18,7 @@ const navLinks = [
   { label: "Record", href: "/record" },
   { label: "News", href: "/news" },
   { label: "Partners", href: "/partners" },
+  { label: "Calendar", href: "/calendar" },
   { label: "Contact", href: "/contact" },
 ];
 
