@@ -10,6 +10,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Shield, Zap, Heart, Users, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TEAM_LINEUP = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Line-Up-Team-iibtf_941be228.png";
 

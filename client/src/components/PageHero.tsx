@@ -4,6 +4,7 @@
  */
 
 import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface PageHeroProps {
   label: string;

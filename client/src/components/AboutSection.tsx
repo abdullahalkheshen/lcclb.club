@@ -8,6 +8,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Target, Users, Mountain, Trophy } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ABOUT_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Line-Up-Team-iibtf_941be228.png";
 

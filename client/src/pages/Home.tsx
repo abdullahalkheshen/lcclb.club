@@ -13,6 +13,7 @@ import RidersSpotlight from "@/components/RidersSpotlight";
 import PartnersNewsPreview from "@/components/PartnersNewsPreview";
 import FooterCTA from "@/components/FooterCTA";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
   return (

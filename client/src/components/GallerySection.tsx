@@ -8,6 +8,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { X } from "lucide-react";
 import { AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const galleryImages = [
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/lizeik_42758a09.jpg", alt: "Hussein Lizeik racing", caption: "Lizeik — Race Day", span: "col-span-1 row-span-2" },

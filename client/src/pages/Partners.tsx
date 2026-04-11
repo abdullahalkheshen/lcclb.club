@@ -12,6 +12,7 @@ import { useRef } from "react";
 import { Trophy, Users, TrendingUp, Shield, Star, ArrowRight, Download } from "lucide-react";
 import { Link } from "wouter";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const advantages = [
   { icon: Trophy, title: "Championship-Winning Team", description: "Align your brand with proven winners — multiple national titles and Lebanon Cup victories." },

@@ -11,6 +11,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Medal, Crown, Award, TrendingUp, ArrowRight, Quote } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const GALLERY_1 = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/lizeik_42758a09.jpg";
 

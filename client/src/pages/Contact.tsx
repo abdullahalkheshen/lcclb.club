@@ -10,6 +10,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { ChevronDown, MapPin, Mail, Phone } from "lucide-react";
 import { toast } from "sonner";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const RACE_SABAH = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/sabah_c84c8fe6.jpg";
 

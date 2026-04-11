@@ -7,10 +7,12 @@
 import { motion } from "framer-motion";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HERO_IMAGE = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/FB-cover-10th_c85bad05.png";
 
 export default function HeroSection() {
+  const { t } = useLanguage();
   return (
     <section
       id="home"
@@ -45,7 +47,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="font-display text-sm md:text-base font-light tracking-[0.4em] uppercase text-silver mb-4"
           >
-            National Champions &middot; Lebanon Cup Winners &middot; Since 2017
+            {t('hero.subtitle')}
           </motion.p>
 
           {/* Main Title */}
@@ -55,11 +57,9 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.7 }}
             className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95] mb-6"
           >
-            LEBANON'S
+            {t('hero.title')}
             <br />
-            <span className="text-racing-red">LEADING</span>
-            <br />
-            CYCLING TEAM
+            <span className="text-racing-red">{t('hero.titleAccent')}</span>
           </motion.h1>
 
           {/* Tagline */}
@@ -69,7 +69,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.9 }}
             className="font-body text-lg md:text-xl text-warm-white/80 max-w-lg mb-10 leading-relaxed"
           >
-            Shaping the future of Lebanese cycling through discipline, training, and commitment.
+            {t('hero.description')}
           </motion.p>
 
           {/* CTA Buttons — from Milanote: "Meet the Riders" / "Partner With Us" */}
@@ -83,14 +83,14 @@ export default function HeroSection() {
               href="/team"
               className="inline-flex items-center gap-2 px-8 py-3 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300 hover:translate-x-1"
             >
-              Meet the Riders
+              {t('hero.cta1')}
               <ArrowRight size={16} />
             </Link>
             <Link
               href="/partners"
               className="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
             >
-              Partner With Us
+              {t('hero.cta2')}
             </Link>
           </motion.div>
         </div>

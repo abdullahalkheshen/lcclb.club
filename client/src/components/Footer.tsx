@@ -3,6 +3,7 @@
  */
 
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const footerLinks = [
   { label: "Home", href: "/" },

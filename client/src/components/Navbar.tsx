@@ -2,12 +2,14 @@
  * DESIGN: Velocity Noir — Minimal top bar for multi-page site
  * Dark transparent background that becomes solid on scroll
  * Racing red accent on active/hover states
+ * Language switcher in top right
  */
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "wouter";
+import { useLanguage, type Language } from "@/contexts/LanguageContext";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -19,10 +21,17 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+const languages: { code: Language; label: string }[] = [
+  { code: "en", label: "ENG" },
+  { code: "ar", label: "AR" },
+  { code: "fr", label: "FR" },
+];
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [location] = useLocation();
+  const { language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -83,6 +92,23 @@ export default function Navbar() {
             ))}
           </div>
 
+          {/* Language Switcher - Desktop */}
+          <div className="hidden lg:flex items-center gap-2 ml-6 xl:ml-8 pl-6 xl:pl-8 border-l border-white/10">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => setLanguage(lang.code)}
+                className={`font-display text-xs font-light tracking-[0.1em] uppercase px-2 py-1 transition-all duration-300 ${
+                  language === lang.code
+                    ? "text-racing-red border-b-2 border-racing-red"
+                    : "text-silver hover:text-white"
+                }`}
+              >
+                {lang.label}
+              </button>
+            ))}
+          </div>
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -123,6 +149,25 @@ export default function Navbar() {
                 </Link>
               </motion.div>
             ))}
+            <div className="w-16 h-[2px] bg-white/10 my-4" />
+            <div className="flex gap-3">
+              {languages.map((lang, i) => (
+                <motion.button
+                  key={lang.code}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: (navLinks.length + i) * 0.06, duration: 0.3 }}
+                  onClick={() => setLanguage(lang.code)}
+                  className={`font-display text-lg font-light tracking-[0.1em] uppercase px-3 py-1 transition-all duration-300 ${
+                    language === lang.code
+                      ? "text-racing-red border-b-2 border-racing-red"
+                      : "text-silver hover:text-racing-red"
+                  }`}
+                >
+                  {lang.label}
+                </motion.button>
+              ))}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
