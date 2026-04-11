@@ -48,6 +48,7 @@ const riders = [
 const categories = ["All", "Masters", "Elite", "Junior"];
 
 export default function Team() {
+  const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("All");
   const identityRef = useRef(null);
   const identityInView = useInView(identityRef, { once: true, margin: "-100px" });
@@ -64,10 +65,10 @@ export default function Team() {
     <div className="min-h-screen bg-dark-surface text-warm-white">
       <Navbar />
       <PageHero
-        label="Our Team"
-        title="MEET THE TEAM BEHIND"
-        titleAccent="THE VICTORY"
-        subtitle="The athletes, coaches, and staff who power Lebanon's leading cycling team. Together, we train, race, and win as one unit."
+        label={t('team.label')}
+        title={t('team.title')}
+        titleAccent={t('team.titleAccent')}
+        subtitle={t('team.subtitle')}
         image={TEAM_LINEUP}
       />
 
@@ -81,13 +82,13 @@ export default function Team() {
             className="text-center mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Our Philosophy
+              {t('team.philosophy')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
-              WHAT MAKES US <span className="text-racing-red">SPECIAL</span>
+              {t('team.philosophy')} <span className="text-racing-red"></span>
             </h2>
             <p className="font-body text-lg text-silver/70 max-w-2xl mx-auto">
-              LCC is built on a foundation of discipline, culture, and the relentless development of Lebanese cycling talent.
+              {t('team.philosophyDesc')}
             </p>
           </motion.div>
 
