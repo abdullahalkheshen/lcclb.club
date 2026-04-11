@@ -217,5 +217,11 @@
     "error": "Une erreur s'est produite",
     "success": "Succès!",
     "send": "Envoyer"
+  },
+  "anniversary": {
+    "subtitle": "10 ANS D'EXCELLENCE",
+    "title": "Une Décennie de Champions",
+    "description": "Depuis 2017, le Lebanese Cycling Club est à l'avant-garde du cyclisme compétitif au Liban. Nous avons construit un héritage de victoires aux championnats, d'athlètes d'élite et d'un engagement inébranlable à repousser les limites de ce qui est possible sur deux roues. Des championnats nationaux à la reconnaissance internationale, nos coureurs ont prouvé que le cyclisme libanais est une force à reckoner.",
+    "closing": "Merci d'avoir fait partie de nos 10 premières années — le meilleur est à venir."
   }
 }

@@ -250,5 +250,11 @@
     "send": "Send",
     "exploreLegacy": "Explore Our Legacy",
     "viewTeam": "View Full Team"
+  },
+  "anniversary": {
+    "subtitle": "10 YEARS OF EXCELLENCE",
+    "title": "A Decade of Champions",
+    "description": "Since 2017, the Lebanese Cycling Club has been at the forefront of competitive cycling in Lebanon. We have built a legacy of championship victories, elite athletes, and an unwavering commitment to pushing the boundaries of what is possible on two wheels. From national championships to international recognition, our riders have proven that Lebanese cycling is a force to be reckoned with.",
+    "closing": "Thank you for being part of our first 10 years — the best is yet to come."
   }
 }

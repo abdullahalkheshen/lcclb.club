@@ -6,6 +6,7 @@
 
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import AnniversarySection from "@/components/AnniversarySection";
 import TickerTape from "@/components/TickerTape";
 import AboutSection from "@/components/AboutSection";
 import AchievementsSection from "@/components/AchievementsSection";
@@ -20,6 +21,7 @@ export default function Home() {
     <div className="min-h-screen bg-dark-surface text-warm-white">
       <Navbar />
       <HeroSection />
+      <AnniversarySection />
       <TickerTape />
       <AboutSection />
       <AchievementsSection />
