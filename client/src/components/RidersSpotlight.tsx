@@ -20,13 +20,13 @@ const riders = [
     name: "Ali Atwi",
     category: "Elite",
     achievement: "National Road Race Champion",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ali Atwi_7e8c3b2a.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/atwi_1_5f2b490b.jpg",
   },
   {
     name: "Haidar Sabah",
     category: "Elite",
     achievement: "Lebanon Cup Winner 2024",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Sabah_4f2d1c9e.jpg",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/sabah_c84c8fe6.jpg",
   },
 ];
 

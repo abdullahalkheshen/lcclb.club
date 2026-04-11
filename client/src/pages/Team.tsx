@@ -25,12 +25,12 @@ const riders = [
   // Masters
   { name: "Monzer Toza", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Monzer Toza_047f8a9e.jpg" },
   { name: "Mohamad Ayash", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Mohamad Ayash_63abf230.jpg" },
-  { name: "Haidar Sabah", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Haidar Sabah_c246cf93.jpg" },
-  { name: "Ali Atwi", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ali Atwi_99719dfb.jpg" },
+  { name: "Haidar Sabah", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Sabah_4f2d1c9e.jpg" },
+  { name: "Ali Atwi", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ali Atwi_7e8c3b2a.jpg" },
   { name: "Hussein Lizeik", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Hussein Lizeik_5002ad5e.jpg" },
   { name: "Mohamad Al Sayed", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Mohamad Al Sayed_bf29b8f9.jpg" },
   { name: "Rida Atwi", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Rida Atwi_33886f58.jpg" },
-  { name: "Ramona Khalife", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ramona Khalife - We will change her background_0a41205d.jpg" },
+  { name: "Ramon Khalife", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramon-khalife_f9e45c1b.png" },
   // Elite
   { name: "Hussien Hareb", category: "Elite", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Hussien Hareb_0d0d0a7d.jpg" },
   { name: "Ali Assi", category: "Elite", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ali Assi_b133c6c2.jpg" },
