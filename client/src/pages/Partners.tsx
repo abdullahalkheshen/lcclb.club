@@ -220,6 +220,74 @@ export default function Partners() {
         </div>
       </section>
 
+      {/* Our Current Sponsors */}
+      <section className="bg-dark-surface py-24 md:py-32">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={impactInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
+              Our Partners
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
+              PROUD <span className="text-racing-red">SPONSORS</span>
+            </h2>
+            <p className="font-body text-silver/70 mt-4 max-w-2xl mx-auto">
+              We're grateful to our partners who support Lebanese cycling excellence.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 gap-8 md:gap-12 max-w-2xl mx-auto">
+            {/* CaseX Sponsor */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={impactInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="flex items-center justify-center p-8 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-all duration-300 group"
+            >
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full h-full flex items-center justify-center"
+                title="CaseX"
+              >
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/caseX-black_2f839a95.png"
+                  alt="CaseX"
+                  className="h-16 object-contain group-hover:scale-110 transition-transform duration-300"
+                />
+              </a>
+            </motion.div>
+
+            {/* Dr Scent Sponsor */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={impactInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex items-center justify-center p-8 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-all duration-300 group"
+            >
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full h-full flex items-center justify-center"
+                title="Dr Scent"
+              >
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/drscent-white_78d5e3fd.png"
+                  alt="Dr Scent"
+                  className="h-20 object-contain group-hover:scale-110 transition-transform duration-300"
+                />
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section ref={ctaRef} className="bg-charcoal py-24 md:py-32">
         <div className="container text-center">

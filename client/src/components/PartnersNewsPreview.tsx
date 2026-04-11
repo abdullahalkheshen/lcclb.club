@@ -47,18 +47,22 @@ export default function PartnersNewsPreview() {
               Proudly partnered with forward-thinking brands supporting Lebanese cycling. Our sponsors share our vision of developing champions and advancing the sport in Lebanon.
             </p>
 
-            {/* Partner Logo Placeholders */}
-            <div className="grid grid-cols-3 gap-4 mb-8">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div
-                  key={i}
-                  className="h-20 bg-dark-surface border border-white/5 flex items-center justify-center hover:border-racing-red/20 transition-colors duration-300"
-                >
-                  <span className="font-display text-xs tracking-[0.2em] uppercase text-silver/30">
-                    Partner {i}
-                  </span>
-                </div>
-              ))}
+            {/* Partner Logos */}
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="h-20 bg-dark-surface border border-white/5 flex items-center justify-center hover:border-racing-red/20 transition-colors duration-300">
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/caseX-black_2f839a95.png"
+                  alt="CaseX"
+                  className="h-12 object-contain"
+                />
+              </div>
+              <div className="h-20 bg-dark-surface border border-white/5 flex items-center justify-center hover:border-racing-red/20 transition-colors duration-300">
+                <img
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/drscent-white_78d5e3fd.png"
+                  alt="Dr Scent"
+                  className="h-16 object-contain"
+                />
+              </div>
             </div>
 
             <Link
