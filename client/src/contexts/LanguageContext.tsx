@@ -82,10 +82,6 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
   const isRTL = language === 'ar';
 
-  if (!mounted) {
-    return <>{children}</>;
-  }
-
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t, isRTL }}>
       {children}
