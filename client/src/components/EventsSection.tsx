@@ -51,6 +51,7 @@ const events = [
 ];
 
 export default function EventsSection() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 

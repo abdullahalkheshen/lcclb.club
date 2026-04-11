@@ -23,6 +23,7 @@ const galleryImages = [
 ];
 
 export default function GallerySection() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
@@ -38,13 +39,13 @@ export default function GallerySection() {
           className="text-center mb-16"
         >
           <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-            Race Gallery
+            {t('gallery.label')}
           </span>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4">
-            FROM THE <span className="text-racing-red">ROAD</span>
+            {t('gallery.title')} <span className="text-racing-red">{t('gallery.titleAccent')}</span>
           </h2>
           <p className="font-body text-silver/60 mt-4 max-w-lg mx-auto">
-            Real moments from LCC races and competitions across Lebanon.
+            {t('gallery.description')}
           </p>
         </motion.div>
 

@@ -41,20 +41,21 @@ function AnimatedCounter({ end, suffix = "", duration = 2, isInView }: CounterPr
 }
 
 const achievementBadges = [
-  { icon: Crown, title: "Lebanon Cup Champions", year: "2024" },
-  { icon: Medal, title: "Women's TT National Champion", year: "2024" },
-  { icon: Award, title: "Masters National Champion", year: "2024" },
-  { icon: TrendingUp, title: "20+ Podiums in 2023-2024", year: "" },
+  { icon: Crown, titleKey: "achievements.badge1", year: "2024" },
+  { icon: Medal, titleKey: "achievements.badge2", year: "2024" },
+  { icon: Award, titleKey: "achievements.badge3", year: "2024" },
+  { icon: TrendingUp, titleKey: "achievements.badge4", year: "" },
 ];
 
 const stats = [
-  { number: 20, suffix: "+", label: "Podium Finishes", description: "In 2023-2024 season" },
-  { number: 8, suffix: "+", label: "National Titles", description: "Across all categories" },
-  { number: 7, suffix: "+", label: "Years Racing", description: "Since 2017" },
-  { number: 100, suffix: "+", label: "Active Members", description: "Growing community" },
+  { number: 20, suffix: "+", labelKey: "achievements.medals", descKey: "achievements.medalsDesc" },
+  { number: 8, suffix: "+", labelKey: "achievements.cups", descKey: "achievements.cupsDesc" },
+  { number: 7, suffix: "+", labelKey: "achievements.events", descKey: "achievements.eventsDesc" },
+  { number: 100, suffix: "+", labelKey: "achievements.members", descKey: "achievements.membersDesc" },
 ];
 
 export default function AchievementsSection() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -79,10 +80,10 @@ export default function AchievementsSection() {
             className="text-center mb-16"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Our Track Record
+              {t('achievements.label')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4">
-              OUR 2024 <span className="text-racing-red">TRIUMPHS</span>
+              {t('achievements.title')} <span className="text-racing-red">{t('achievements.titleAccent')}</span>
             </h2>
           </motion.div>
 
@@ -90,7 +91,7 @@ export default function AchievementsSection() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
             {achievementBadges.map((badge, i) => (
               <motion.div
-                key={badge.title}
+                key={badge.titleKey}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
@@ -102,7 +103,7 @@ export default function AchievementsSection() {
                   className="text-racing-red mx-auto mb-4 group-hover:scale-110 transition-transform duration-300"
                 />
                 <h3 className="font-display text-sm font-semibold text-white tracking-wide uppercase mb-1">
-                  {badge.title}
+                  {t(badge.titleKey)}
                 </h3>
                 {badge.year && (
                   <span className="font-display text-xs text-racing-red/70">{badge.year}</span>
@@ -115,7 +116,7 @@ export default function AchievementsSection() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, i) => (
               <motion.div
-                key={stat.label}
+                key={stat.labelKey}
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
@@ -130,10 +131,10 @@ export default function AchievementsSection() {
                   />
                 </div>
                 <h3 className="font-display text-sm tracking-[0.2em] uppercase text-racing-red mb-1">
-                  {stat.label}
+                  {t(stat.labelKey)}
                 </h3>
                 <p className="font-body text-sm text-silver/60">
-                  {stat.description}
+                  {t(stat.descKey)}
                 </p>
               </motion.div>
             ))}

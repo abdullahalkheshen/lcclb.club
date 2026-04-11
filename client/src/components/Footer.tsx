@@ -6,13 +6,13 @@ import { Link } from "wouter";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const footerLinks = [
-  { label: "Home", href: "/" },
-  { label: "Legacy", href: "/legacy" },
-  { label: "Team", href: "/team" },
-  { label: "Record", href: "/record" },
-  { label: "News", href: "/news" },
-  { label: "Partners", href: "/partners" },
-  { label: "Contact", href: "/contact" },
+  { labelKey: "nav.home", href: "/" },
+  { labelKey: "nav.legacy", href: "/legacy" },
+  { labelKey: "nav.team", href: "/team" },
+  { labelKey: "nav.record", href: "/record" },
+  { labelKey: "nav.news", href: "/news" },
+  { labelKey: "nav.partners", href: "/partners" },
+  { labelKey: "nav.contact", href: "/contact" },
 ];
 
 const socialLinks = [
@@ -22,6 +22,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="bg-[#0A0A0A] border-t border-white/5">
       <div className="container py-12 md:py-16">
@@ -38,17 +39,17 @@ export default function Footer() {
               </span>
             </div>
             <p className="font-body text-sm text-silver/50 leading-relaxed">
-              Lebanon's leading cycling team. National Champions, Lebanon Cup Winners. Since 2015.
+              {t('footer.description')}
             </p>
             <p className="font-display text-xs tracking-[0.2em] uppercase text-racing-red/60 mt-2">
-              #RideBeyond #WeAreLCC
+              {t('footer.hashtag')}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
             <h4 className="font-display text-xs tracking-[0.2em] uppercase text-racing-red mb-4">
-              Navigation
+              {t('footer.navigation')}
             </h4>
             <div className="grid grid-cols-2 gap-2">
               {footerLinks.map((link) => (
@@ -57,7 +58,7 @@ export default function Footer() {
                   href={link.href}
                   className="font-body text-sm text-silver/50 hover:text-racing-red transition-colors"
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               ))}
             </div>
@@ -66,7 +67,7 @@ export default function Footer() {
           {/* Social */}
           <div>
             <h4 className="font-display text-xs tracking-[0.2em] uppercase text-racing-red mb-4">
-              Contact
+              {t('footer.contact')}
             </h4>
             <div className="flex gap-3 mb-4">
               {socialLinks.map((social) => (
@@ -103,7 +104,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="font-body text-xs text-silver/30 text-center">
-            &copy; {new Date().getFullYear()} Lebanese Cycling Club (LCC). All rights reserved.
+            &copy; {new Date().getFullYear()} Lebanese Cycling Club (LCC). {t('footer.rights')}.
           </p>
           <p className="font-display text-[10px] tracking-[0.2em] uppercase text-silver/20">
             Lebanon's Leading Cycling Team

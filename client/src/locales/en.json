@@ -18,18 +18,37 @@
   },
   "about": {
     "label": "OUR STORY",
-    "title": "FOUNDED",
-    "titleAccent": "2017",
-    "description": "Lebanese Cycling Club (LCC) was established with a bold vision: to develop world-class cyclists and establish Lebanon as a cycling powerhouse in the Middle East. Starting from humble beginnings, LCC has grown into the nation's premier cycling team, known for discipline, professionalism, and championship-winning performances."
+    "title": "THE LCC",
+    "titleAccent": "LEGACY",
+    "description": "Founded in 2017, LCC has shaped the future of Lebanese cycling. Our culture of discipline, training, and commitment has produced multiple national champions and a strong roster of elite athletes.",
+    "descriptionLong": "From mountain trails to coastal roads, our members push boundaries and challenge limits every day. With multiple Lebanese Championship titles and Lebanon Cup victories, we continue to inspire the next generation of cyclists in Lebanon and beyond.",
+    "values": {
+      "excellence": "Excellence",
+      "excellenceDesc": "Championship-winning team across multiple categories with a relentless pursuit of competitive success.",
+      "community": "Community",
+      "communityDesc": "Building a passionate cycling movement in Lebanon since 2017, uniting riders of all levels and backgrounds.",
+      "development": "Development",
+      "developmentDesc": "Advancing cycling in Lebanon through youth development, training programs, and expanding competitive categories.",
+      "sportsmanship": "Sportsmanship",
+      "sportsmanshipDesc": "Competing with discipline, respect, and integrity — values that define our culture on and off the road."
+    }
   },
   "achievements": {
     "label": "OUR 2024 TRIUMPHS",
     "title": "CHAMPIONSHIP",
     "titleAccent": "VICTORIES",
-    "medals": "National Titles",
-    "cups": "Lebanon Cup Wins",
-    "events": "Events Participated",
-    "members": "Active Members"
+    "badge1": "Lebanon Cup Champions",
+    "badge2": "Women's TT National Champion",
+    "badge3": "Masters National Champion",
+    "badge4": "20+ Podiums in 2023-2024",
+    "medals": "Podium Finishes",
+    "medalsDesc": "In 2023-2024 season",
+    "cups": "National Titles",
+    "cupsDesc": "Across all categories",
+    "events": "Years Racing",
+    "eventsDesc": "Since 2017",
+    "members": "Active Members",
+    "membersDesc": "Growing community"
   },
   "riders": {
     "label": "MEET THE TEAM",
@@ -37,7 +56,8 @@
     "titleAccent": "SPOTLIGHT",
     "masters": "Masters",
     "elite": "Elite",
-    "junior": "Junior"
+    "junior": "Junior",
+    "viewTeam": "View Full Team"
   },
   "events": {
     "label": "UPCOMING RACES",
@@ -45,12 +65,14 @@
     "titleAccent": "EVENTS",
     "location": "Location",
     "date": "Date",
-    "time": "Time"
+    "time": "Time",
+    "noEvents": "No upcoming events at this time."
   },
   "gallery": {
     "label": "RACE MOMENTS",
     "title": "ACTION",
-    "titleAccent": "GALLERY"
+    "titleAccent": "GALLERY",
+    "fromTheRoad": "Real moments from LCC races and competitions across Lebanon."
   },
   "partners": {
     "label": "OUR PARTNERS",
@@ -74,7 +96,9 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "followUs": "Follow Us"
+    "followUs": "Follow Us",
+    "company": "Lebanese Cycling Club",
+    "description": "Lebanon's leading cycling team since 2017"
   },
   "legacy": {
     "label": "OUR HISTORY",
@@ -109,7 +133,8 @@
     "coachesDesc": "Expert coaching and support staff dedicated to athlete development.",
     "masters": "Masters",
     "elite": "Elite",
-    "junior": "Junior"
+    "junior": "Junior",
+    "filterAll": "All"
   },
   "record": {
     "label": "ACHIEVEMENTS",
@@ -179,6 +204,12 @@
     "partnerFAQ": "Partner FAQ",
     "finalCTA": "READY TO JOIN US?"
   },
+  "footer": {
+    "description": "Lebanon's leading cycling team. National Champions, Lebanon Cup Winners. Since 2017.",
+    "hashtag": "#RideBeyond #WeAreLCC",
+    "navigation": "NAVIGATION",
+    "contact": "CONTACT"
+  },
   "common": {
     "learnMore": "Learn More",
     "readMore": "Read More",
@@ -189,6 +220,8 @@
     "loading": "Loading...",
     "error": "An error occurred",
     "success": "Success!",
-    "send": "Send"
+    "send": "Send",
+    "exploreLegacy": "Explore Our Legacy",
+    "viewTeam": "View Full Team"
   }
 }

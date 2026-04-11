@@ -31,6 +31,7 @@ const riders = [
 ];
 
 export default function RidersSpotlight() {
+  const { t } = useLanguage();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -44,12 +45,8 @@ export default function RidersSpotlight() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-            Our Athletes
-          </span>
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4">
-            MEET OUR <span className="text-racing-red">CHAMPIONS</span>
-          </h2>
+          <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">{t('riders.label')}</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-4">{t('riders.title')} <span className="text-racing-red">{t('riders.titleAccent')}</span></h2>
         </motion.div>
 
         {/* Riders Grid */}
