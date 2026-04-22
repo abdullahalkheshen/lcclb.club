@@ -40,7 +40,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between py-4 text-left group"
       >
-        <span className="font-display text-sm font-semibold text-white tracking-wide uppercase group-hover:text-racing-red transition-colors pr-4">
+        <span className="font-display text-sm font-semibold text-white tracking-wide uppercase group-hover:text-racing-red transition-colors pe-4">
           {q}
         </span>
         <ChevronDown
@@ -86,7 +86,7 @@ export default function Contact() {
     setPartnerForm({ company: "", contact: "", email: "", interest: "", message: "" });
   };
 
-  const inputClass = "w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none transition-colors duration-300 placeholder:text-silver/30";
+  const inputClass = "w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none focus-visible:ring-2 focus-visible:ring-racing-red/50 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal transition-colors duration-300 placeholder:text-silver/30";
   const labelClass = "font-display text-xs tracking-[0.2em] uppercase text-silver/70 block mb-2";
 
   return (
@@ -133,23 +133,24 @@ export default function Contact() {
               </p>
               <form onSubmit={handleRiderSubmit} className="space-y-6">
                 <div>
-                  <label className={labelClass}>{t('contactPage.fullName')}</label>
-                  <input type="text" value={riderForm.name} onChange={(e) => setRiderForm({ ...riderForm, name: e.target.value })} required className={inputClass} placeholder={t('contactPage.yourName')} />
+                  <label htmlFor="rider-name" className={labelClass}>{t('contactPage.fullName')}</label>
+                  <input id="rider-name" type="text" value={riderForm.name} onChange={(e) => setRiderForm({ ...riderForm, name: e.target.value })} required className={inputClass} placeholder={t('contactPage.yourName')} />
                 </div>
                 <div>
-                  <label className={labelClass}>{t('contactPage.email')}</label>
-                  <input type="email" value={riderForm.email} onChange={(e) => setRiderForm({ ...riderForm, email: e.target.value })} required className={inputClass} placeholder="your@email.com" />
+                  <label htmlFor="rider-email" className={labelClass}>{t('contactPage.email')}</label>
+                  <input id="rider-email" type="email" value={riderForm.email} onChange={(e) => setRiderForm({ ...riderForm, email: e.target.value })} required className={inputClass} placeholder="your@email.com" />
                 </div>
                 <div>
-                  <label className={labelClass}>{t('contactPage.phone')}</label>
-                  <input type="tel" value={riderForm.phone} onChange={(e) => setRiderForm({ ...riderForm, phone: e.target.value })} className={inputClass} placeholder="+961 XX XXX XXX" />
+                  <label htmlFor="rider-phone" className={labelClass}>{t('contactPage.phone')}</label>
+                  <input id="rider-phone" type="tel" value={riderForm.phone} onChange={(e) => setRiderForm({ ...riderForm, phone: e.target.value })} className={inputClass} placeholder="+961 XX XXX XXX" />
                 </div>
                 <div>
-                  <label className={labelClass}>{t('contactPage.racingCategory')}</label>
+                  <label htmlFor="rider-category" className={labelClass}>{t('contactPage.racingCategory')}</label>
                   <select
+                    id="rider-category"
                     value={riderForm.category}
                     onChange={(e) => setRiderForm({ ...riderForm, category: e.target.value })}
-                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none transition-colors duration-300"
+                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none focus-visible:ring-2 focus-visible:ring-racing-red/50 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal transition-colors duration-300"
                   >
                     <option value="" className="bg-charcoal">{t('contactPage.selectCategory')}</option>
                     <option value="elite-men" className="bg-charcoal">{t('contactPage.eliteMen')}</option>
@@ -160,10 +161,10 @@ export default function Contact() {
                   </select>
                 </div>
                 <div>
-                  <label className={labelClass}>{t('contactPage.experienceLevel')}</label>
-                  <input type="text" value={riderForm.experience} onChange={(e) => setRiderForm({ ...riderForm, experience: e.target.value })} className={inputClass} placeholder={t('contactPage.describeExperience')} />
+                  <label htmlFor="rider-experience" className={labelClass}>{t('contactPage.experienceLevel')}</label>
+                  <input id="rider-experience" type="text" value={riderForm.experience} onChange={(e) => setRiderForm({ ...riderForm, experience: e.target.value })} className={inputClass} placeholder={t('contactPage.describeExperience')} />
                 </div>
-                <button type="submit" className="w-full py-4 bg-racing-red text-white font-display text-sm tracking-[0.2em] uppercase hover:bg-racing-red/90 transition-all duration-300">
+                <button type="submit" className="w-full py-4 bg-racing-red text-white font-display text-sm tracking-[0.2em] uppercase hover:bg-racing-red/90 transition-colors duration-300 active:scale-[0.97]">
                   {t('contactPage.submitApplication')}
                 </button>
               </form>
@@ -184,23 +185,24 @@ export default function Contact() {
               </p>
               <form onSubmit={handlePartnerSubmit} className="space-y-6">
                 <div>
-                  <label className={labelClass}>{t('contactPage.companyName')}</label>
-                  <input type="text" value={partnerForm.company} onChange={(e) => setPartnerForm({ ...partnerForm, company: e.target.value })} required className={inputClass} placeholder={t('contactPage.yourCompany')} />
+                  <label htmlFor="partner-company" className={labelClass}>{t('contactPage.companyName')}</label>
+                  <input id="partner-company" type="text" value={partnerForm.company} onChange={(e) => setPartnerForm({ ...partnerForm, company: e.target.value })} required className={inputClass} placeholder={t('contactPage.yourCompany')} />
                 </div>
                 <div>
-                  <label className={labelClass}>{t('contactPage.contactName')}</label>
-                  <input type="text" value={partnerForm.contact} onChange={(e) => setPartnerForm({ ...partnerForm, contact: e.target.value })} required className={inputClass} placeholder={t('contactPage.yourName')} />
+                  <label htmlFor="partner-contact" className={labelClass}>{t('contactPage.contactName')}</label>
+                  <input id="partner-contact" type="text" value={partnerForm.contact} onChange={(e) => setPartnerForm({ ...partnerForm, contact: e.target.value })} required className={inputClass} placeholder={t('contactPage.yourName')} />
                 </div>
                 <div>
-                  <label className={labelClass}>{t('contactPage.email')}</label>
-                  <input type="email" value={partnerForm.email} onChange={(e) => setPartnerForm({ ...partnerForm, email: e.target.value })} required className={inputClass} placeholder="your@company.com" />
+                  <label htmlFor="partner-email" className={labelClass}>{t('contactPage.email')}</label>
+                  <input id="partner-email" type="email" value={partnerForm.email} onChange={(e) => setPartnerForm({ ...partnerForm, email: e.target.value })} required className={inputClass} placeholder="your@company.com" />
                 </div>
                 <div>
-                  <label className={labelClass}>{t('contactPage.partnershipInterest')}</label>
+                  <label htmlFor="partner-interest" className={labelClass}>{t('contactPage.partnershipInterest')}</label>
                   <select
+                    id="partner-interest"
                     value={partnerForm.interest}
                     onChange={(e) => setPartnerForm({ ...partnerForm, interest: e.target.value })}
-                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none transition-colors duration-300"
+                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none focus-visible:ring-2 focus-visible:ring-racing-red/50 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal transition-colors duration-300"
                   >
                     <option value="" className="bg-charcoal">{t('contactPage.selectInterest')}</option>
                     <option value="title" className="bg-charcoal">{t('partnersPage.titleSponsor')}</option>
@@ -210,16 +212,17 @@ export default function Contact() {
                   </select>
                 </div>
                 <div>
-                  <label className={labelClass}>{t('contactPage.message')}</label>
+                  <label htmlFor="partner-message" className={labelClass}>{t('contactPage.message')}</label>
                   <textarea
+                    id="partner-message"
                     value={partnerForm.message}
                     onChange={(e) => setPartnerForm({ ...partnerForm, message: e.target.value })}
                     rows={4}
-                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none transition-colors duration-300 resize-none placeholder:text-silver/30"
+                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none focus-visible:ring-2 focus-visible:ring-racing-red/50 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal transition-colors duration-300 resize-none placeholder:text-silver/30"
                     placeholder={t('contactPage.partnershipVision')}
                   />
                 </div>
-                <button type="submit" className="w-full py-4 bg-racing-red text-white font-display text-sm tracking-[0.2em] uppercase hover:bg-racing-red/90 transition-all duration-300">
+                <button type="submit" className="w-full py-4 bg-racing-red text-white font-display text-sm tracking-[0.2em] uppercase hover:bg-racing-red/90 transition-colors duration-300 active:scale-[0.97]">
                   {t('contactPage.sendInquiry')}
                 </button>
               </form>
@@ -348,7 +351,7 @@ export default function Contact() {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex items-center justify-center w-12 h-12 bg-white/5 border border-white/10 text-silver hover:bg-racing-red hover:border-racing-red hover:text-white transition-all duration-300"
+                className="group flex items-center justify-center w-12 h-12 bg-white/5 border border-white/10 text-silver hover:bg-racing-red hover:border-racing-red hover:text-white transition-[background-color,border-color,color] duration-300"
                 aria-label={social.name}
               >
                 {social.icon}

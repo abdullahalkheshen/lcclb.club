@@ -25,7 +25,7 @@ export default function PageHero({ label, title, titleAccent, subtitle, image }:
           alt=""
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30 pointer-events-none" />
       </div>
 
       <div className="relative z-10 container pb-12 md:pb-16">

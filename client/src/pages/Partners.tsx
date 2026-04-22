@@ -96,7 +96,7 @@ export default function Partners() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={whyInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-                className="group p-6 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-all duration-500 text-center"
+                className="group p-6 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-[border-color] duration-500 text-center"
               >
                 <adv.icon size={32} className="text-racing-red mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="font-display text-lg font-semibold text-white mb-2 tracking-wide uppercase">{adv.title}</h3>
@@ -131,7 +131,7 @@ export default function Partners() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={tiersInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-                className={`group p-6 border transition-all duration-500 relative overflow-hidden ${
+                className={`group p-6 border transition-[border-color] duration-500 relative overflow-hidden ${
                   tier.highlight
                     ? "bg-racing-red/10 border-racing-red/40 hover:border-racing-red"
                     : "bg-dark-surface border-white/5 hover:border-racing-red/30"
@@ -164,8 +164,8 @@ export default function Partners() {
             className="text-center"
           >
             <button
-              onClick={() => toast.info(t('common.loading'))}
-              className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
+              onClick={() => toast.info("Partnership kit coming soon")}
+              className="inline-flex items-center gap-2 px-8 py-3.5 min-h-[44px] border border-white/20 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-[border-color,color] duration-300 active:scale-[0.97]"
             >
               <Download size={16} />
               {t('partnersPage.downloadKit')}
@@ -248,21 +248,15 @@ export default function Partners() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={impactInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex items-center justify-center p-8 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-all duration-300 group"
+              className="flex items-center justify-center p-8 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-[border-color] duration-300 group"
             >
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full h-full flex items-center justify-center"
-                title="CaseX"
-              >
+              <div className="flex items-center justify-center w-full h-full">
                 <img
                   src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/caseX-black_2f839a95.png"
                   alt="CaseX"
                   className="h-16 object-contain group-hover:scale-110 transition-transform duration-300"
                 />
-              </a>
+              </div>
             </motion.div>
 
             {/* Dr Scent Sponsor */}
@@ -270,21 +264,15 @@ export default function Partners() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={impactInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex items-center justify-center p-8 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-all duration-300 group"
+              className="flex items-center justify-center p-8 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-[border-color] duration-300 group"
             >
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full h-full flex items-center justify-center"
-                title="Dr Scent"
-              >
+              <div className="flex items-center justify-center w-full h-full">
                 <img
                   src="https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/drscent-white_78d5e3fd.png"
                   alt="Dr Scent"
                   className="h-20 object-contain group-hover:scale-110 transition-transform duration-300"
                 />
-              </a>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -308,14 +296,14 @@ export default function Partners() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-[background-color,transform] duration-300 active:scale-[0.97]"
               >
                 {t('partnersPage.contactUs')}
                 <ArrowRight size={16} />
               </Link>
               <button
-                onClick={() => toast.info(t('common.loading'))}
-                className="inline-flex items-center gap-2 px-10 py-4 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
+                onClick={() => toast.info("Partnership kit coming soon")}
+                className="inline-flex items-center gap-2 px-10 py-4 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-[border-color,color] duration-300 active:scale-[0.97]"
               >
                 <Download size={16} />
                 {t('partnersPage.downloadKit')}

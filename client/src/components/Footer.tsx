@@ -118,7 +118,7 @@ export default function Footer() {
                   href={social.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-9 h-9 bg-white/5 border border-white/10 text-silver hover:bg-racing-red hover:border-racing-red hover:text-white transition-all duration-300"
+                  className="flex items-center justify-center w-11 h-11 bg-white/5 border border-white/10 text-silver hover:bg-racing-red hover:border-racing-red hover:text-white transition-[background-color,border-color,color] duration-300"
                   aria-label={social.name}
                 >
                   {social.icon}

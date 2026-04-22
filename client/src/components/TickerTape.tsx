@@ -1,8 +1,4 @@
-/*
- * DESIGN: Velocity Noir — Scrolling ticker tape
- * Racing red background, white text, continuous motion
- * Updated with official 2024 achievements from Milanote
- */
+import { useRef, useState, useEffect } from "react";
 
 const items = [
   "LEBANON CUP CHAMPIONS 2024",
@@ -13,10 +9,46 @@ const items = [
   "LEBANON'S LEADING CYCLING TEAM",
 ];
 
+let styleInjected = false;
+
 export default function TickerTape() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (!styleInjected) {
+      const style = document.createElement("style");
+      style.textContent = `
+        @keyframes ticker {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+        .animate-ticker {
+          animation: ticker 30s linear infinite;
+        }
+        .animate-ticker.paused {
+          animation-play-state: paused;
+        }
+      `;
+      document.head.appendChild(style);
+      styleInjected = true;
+    }
+  }, []);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setPaused(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="bg-racing-red overflow-hidden py-3 relative">
-      <div className="flex animate-ticker whitespace-nowrap">
+    <div ref={ref} className="bg-racing-red overflow-hidden py-3 relative">
+      <div className={`flex animate-ticker whitespace-nowrap ${paused ? "paused" : ""}`}>
         {[...items, ...items, ...items].map((item, i) => (
           <span
             key={i}
@@ -27,16 +59,6 @@ export default function TickerTape() {
           </span>
         ))}
       </div>
-
-      <style>{`
-        @keyframes ticker {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.333%); }
-        }
-        .animate-ticker {
-          animation: ticker 30s linear infinite;
-        }
-      `}</style>
     </div>
   );
 }

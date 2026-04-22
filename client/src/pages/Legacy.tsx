@@ -89,7 +89,7 @@ export default function Legacy() {
                 <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-racing-red -translate-x-[5px] md:-translate-x-[6px] mt-2 z-10" />
 
                 {/* Content */}
-                <div className={`ml-12 md:ml-0 md:w-[45%] ${i % 2 === 0 ? "md:text-right md:pr-12" : "md:text-left md:pl-12 md:ml-auto"}`}>
+                <div className={`ms-12 md:ms-0 md:w-[45%] ${i % 2 === 0 ? "md:text-end md:pe-12" : "md:text-start md:ps-12 md:ms-auto"}`}>
                   <span className="font-display text-3xl font-bold text-racing-red">{milestone.year}</span>
                   <h3 className="font-display text-xl font-semibold text-white tracking-wide uppercase mt-2 mb-2">
                     {milestone.title}
@@ -131,7 +131,7 @@ export default function Legacy() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={valuesInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-                className="group p-6 bg-dark-surface border border-white/5 hover:border-racing-red/30 transition-all duration-500 text-center"
+                className="group p-6 bg-dark-surface border border-white/5 hover:border-racing-red/30 transition-[border-color] duration-500 text-center"
               >
                 <value.icon
                   size={32}
@@ -153,7 +153,7 @@ export default function Legacy() {
       <section ref={visionRef} className="relative py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0">
           <img src={ABOUT_IMAGE} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/80" />
+          <div className="absolute inset-0 bg-black/80 pointer-events-none" />
         </div>
         <div className="relative z-10 container text-center">
           <motion.div
@@ -175,14 +175,14 @@ export default function Legacy() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-[background-color,transform] duration-300 active:scale-[0.97]"
               >
                 {t('legacyPage.joinLegacy')}
                 <ArrowRight size={16} />
               </Link>
               <Link
                 href="/partners"
-                className="inline-flex items-center gap-2 px-10 py-4 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
+                className="inline-flex items-center gap-2 px-10 py-4 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-[border-color,color] duration-300 active:scale-[0.97]"
               >
                 {t('legacyPage.supportMission')}
               </Link>

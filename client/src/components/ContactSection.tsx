@@ -71,7 +71,7 @@ export default function ContactSection() {
           alt="Sunset cycling"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/85" />
+        <div className="absolute inset-0 bg-black/85 pointer-events-none" />
       </div>
 
       <div className="relative z-10 py-24 md:py-32">
@@ -142,7 +142,7 @@ export default function ContactSection() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group flex items-center justify-center w-12 h-12 bg-white/5 border border-white/10 text-silver hover:bg-racing-red hover:border-racing-red hover:text-white transition-all duration-300"
+                      className="group flex items-center justify-center w-12 h-12 bg-white/5 border border-white/10 text-silver hover:bg-racing-red hover:border-racing-red hover:text-white transition-[background-color,border-color,color] duration-300"
                       aria-label={social.name}
                     >
                       {social.icon}
@@ -152,7 +152,7 @@ export default function ContactSection() {
               </div>
 
               {/* Research Citation */}
-              <div className="mt-10 p-4 bg-white/5 border-l-2 border-racing-red">
+              <div className="mt-10 p-4 bg-white/5 border-s-2 border-racing-red">
                 <p className="font-body text-xs text-silver/50 leading-relaxed">
                   Studies show that cycling reduces all-cause mortality risk and is associated with 84% lower CO2 emissions compared to driving.
                   <br />
@@ -171,47 +171,50 @@ export default function ContactSection() {
             >
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="font-display text-xs tracking-[0.2em] uppercase text-silver/70 block mb-2">
+                  <label htmlFor="contact-name" className="font-display text-xs tracking-[0.2em] uppercase text-silver/70 block mb-2">
                     Your Name
                   </label>
                   <input
                     type="text"
+                    id="contact-name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
-                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none transition-colors duration-300 placeholder:text-silver/30"
+                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none focus-visible:ring-2 focus-visible:ring-racing-red/50 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal transition-colors duration-300 placeholder:text-silver/30"
                     placeholder="Enter your name"
                   />
                 </div>
                 <div>
-                  <label className="font-display text-xs tracking-[0.2em] uppercase text-silver/70 block mb-2">
+                  <label htmlFor="contact-email" className="font-display text-xs tracking-[0.2em] uppercase text-silver/70 block mb-2">
                     Email Address
                   </label>
                   <input
                     type="email"
+                    id="contact-email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
-                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none transition-colors duration-300 placeholder:text-silver/30"
+                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none focus-visible:ring-2 focus-visible:ring-racing-red/50 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal transition-colors duration-300 placeholder:text-silver/30"
                     placeholder="Enter your email"
                   />
                 </div>
                 <div>
-                  <label className="font-display text-xs tracking-[0.2em] uppercase text-silver/70 block mb-2">
+                  <label htmlFor="contact-message" className="font-display text-xs tracking-[0.2em] uppercase text-silver/70 block mb-2">
                     Message
                   </label>
                   <textarea
+                    id="contact-message"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     required
                     rows={5}
-                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none transition-colors duration-300 resize-none placeholder:text-silver/30"
+                    className="w-full bg-transparent border-b border-white/20 focus:border-racing-red text-white font-body py-3 px-0 outline-none focus-visible:ring-2 focus-visible:ring-racing-red/50 focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal transition-colors duration-300 resize-none placeholder:text-silver/30"
                     placeholder="Tell us about yourself or ask a question..."
                   />
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-3 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.2em] uppercase hover:bg-racing-red/90 transition-all duration-300 hover:translate-x-1 group"
+                  className="inline-flex items-center gap-3 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.2em] uppercase hover:bg-racing-red/90 transition-[background-color,color,transform] duration-300 hover:translate-x-1 active:scale-[0.97] group"
                 >
                   Send Message
                   <ExternalLink size={14} className="group-hover:translate-x-1 transition-transform" />

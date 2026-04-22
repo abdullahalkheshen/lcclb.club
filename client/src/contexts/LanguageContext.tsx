@@ -21,27 +21,16 @@ const translations = {
 };
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('en');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // Get saved language from localStorage or detect from browser
+  const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem('language') as Language | null;
     if (saved && ['en', 'ar', 'fr'].includes(saved)) {
-      setLanguageState(saved);
-    } else {
-      // Detect browser language
-      const browserLang = navigator.language.split('-')[0];
-      if (browserLang === 'ar') {
-        setLanguageState('ar');
-      } else if (browserLang === 'fr') {
-        setLanguageState('fr');
-      } else {
-        setLanguageState('en');
-      }
+      return saved;
     }
-    setMounted(true);
-  }, []);
+    const browserLang = navigator.language.split('-')[0];
+    if (browserLang === 'ar') return 'ar';
+    if (browserLang === 'fr') return 'fr';
+    return 'en';
+  });
 
   useEffect(() => {
     // Update HTML lang attribute and dir for RTL

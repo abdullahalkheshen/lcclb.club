@@ -64,7 +64,7 @@ export default function AchievementsSection() {
       <div className="bg-charcoal relative py-24 md:py-32">
         {/* Subtle grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.03] pointer-events-none"
           style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
             backgroundSize: "60px 60px",
@@ -95,7 +95,7 @@ export default function AchievementsSection() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-                className="group relative bg-dark-surface border border-white/5 hover:border-racing-red/40 p-6 text-center transition-all duration-500 overflow-hidden"
+                className="group relative bg-dark-surface border border-white/5 hover:border-racing-red/40 p-6 text-center transition-[border-color] duration-500 overflow-hidden"
               >
                 <div className="absolute top-0 left-0 w-0 h-[3px] bg-racing-red group-hover:w-full transition-all duration-500" />
                 <badge.icon
@@ -122,7 +122,7 @@ export default function AchievementsSection() {
                 transition={{ duration: 0.6, delay: 0.5 + i * 0.1 }}
                 className="text-center group"
               >
-                <div className="font-display text-5xl md:text-6xl font-bold text-white mb-2">
+                <div className="font-display text-5xl md:text-6xl font-bold text-white mb-2 tabular-nums">
                   <AnimatedCounter
                     end={stat.number}
                     suffix={stat.suffix}

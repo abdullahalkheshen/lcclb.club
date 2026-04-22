@@ -50,7 +50,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,box-shadow] duration-500 ${
           isScrolled
             ? "bg-[#0D0D0D]/95 backdrop-blur-md shadow-lg shadow-black/20"
             : "bg-transparent"
@@ -65,7 +65,7 @@ export default function Navbar() {
             <span className="font-display text-2xl md:text-3xl font-bold tracking-wider text-white">
               LCC
             </span>
-            <span className="w-8 h-[3px] bg-racing-red group-hover:w-12 transition-all duration-300" />
+            <span className="w-8 h-[3px] bg-racing-red group-hover:w-12 transition-[width] duration-300" />
             <span className="font-display text-xs md:text-sm font-light tracking-[0.3em] text-silver uppercase">
               Lebanon
             </span>
@@ -99,7 +99,7 @@ export default function Navbar() {
               <button
                 key={lang.code}
                 onClick={() => setLanguage(lang.code)}
-                className={`font-display text-xs font-light tracking-[0.1em] uppercase px-2 py-1 transition-all duration-300 ${
+                className={`font-display text-xs font-light tracking-[0.1em] uppercase px-2 py-2 min-h-[44px] flex items-center transition-[color,border-color] duration-300 ${
                   language === lang.code
                     ? "text-racing-red border-b-2 border-racing-red"
                     : "text-silver hover:text-white"
@@ -113,7 +113,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden text-white p-2"
+            className="lg:hidden text-white p-2.5"
             aria-label="Toggle menu"
           >
             {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -159,7 +159,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: (navLinks.length + i) * 0.06, duration: 0.3 }}
                   onClick={() => setLanguage(lang.code)}
-                  className={`font-display text-lg font-light tracking-[0.1em] uppercase px-3 py-1 transition-all duration-300 ${
+                  className={`font-display text-lg font-light tracking-[0.1em] uppercase px-3 py-1 transition-[color,border-color] duration-300 ${
                     language === lang.code
                       ? "text-racing-red border-b-2 border-racing-red"
                       : "text-silver hover:text-racing-red"

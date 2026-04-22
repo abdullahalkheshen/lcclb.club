@@ -25,8 +25,8 @@ export default function HeroSection() {
           alt="Cyclist racing through Lebanese mountains"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 pointer-events-none" />
       </div>
 
       {/* Content */}
@@ -81,14 +81,14 @@ export default function HeroSection() {
           >
             <Link
               href="/team"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300 hover:translate-x-1"
+              className="inline-flex items-center gap-2 px-8 py-3 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-[background-color,transform] duration-300 hover:translate-x-1 active:scale-[0.97]"
             >
               {t('hero.cta1')}
               <ArrowRight size={16} />
             </Link>
             <Link
               href="/partners"
-              className="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
+              className="inline-flex items-center gap-2 px-8 py-3 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-[border-color,color] duration-300 active:scale-[0.97]"
             >
               {t('hero.cta2')}
             </Link>
@@ -133,7 +133,7 @@ export default function HeroSection() {
       </motion.div>
 
       {/* Bottom diagonal cut */}
-      <div className="absolute bottom-0 left-0 right-0 h-24">
+      <div className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none">
         <svg
           viewBox="0 0 1440 96"
           fill="none"

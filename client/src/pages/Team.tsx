@@ -14,11 +14,11 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const TEAM_LINEUP = "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Line-Up-Team-iibtf_941be228.png";
 
-const teamValues = [
-  { icon: Shield, title: "Discipline", description: "Rigorous training standards that build champions." },
-  { icon: Zap, title: "Performance", description: "Pushing limits in every race and training session." },
-  { icon: Heart, title: "Unity", description: "Together we train, race, and win as one unit." },
-  { icon: Users, title: "Growth", description: "Developing the next generation of Lebanese cyclists." },
+const getTeamValues = (t: any) => [
+  { icon: Shield, title: t('team.discipline'), description: t('team.disciplineDesc') },
+  { icon: Zap, title: t('team.performance'), description: t('team.performanceDesc') },
+  { icon: Heart, title: t('team.unity'), description: t('team.unityDesc') },
+  { icon: Users, title: t('team.growth'), description: t('team.growthDesc') },
 ];
 
 const riders = [
@@ -56,6 +56,8 @@ export default function Team() {
   const ridersInView = useInView(ridersRef, { once: true, margin: "-100px" });
   const ctaRef = useRef(null);
   const ctaInView = useInView(ctaRef, { once: true, margin: "-100px" });
+
+  const teamValues = getTeamValues(t);
 
   const filteredRiders = activeCategory === "All"
     ? riders
@@ -99,7 +101,7 @@ export default function Team() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={identityInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-                className="group p-6 bg-charcoal/50 border border-white/5 hover:border-racing-red/30 transition-all duration-500 text-center"
+                className="group p-6 bg-charcoal/50 border border-white/5 hover:border-racing-red/30 transition-[border-color] duration-500 text-center"
               >
                 <value.icon size={32} className="text-racing-red mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
                 <h3 className="font-display text-lg font-semibold text-white mb-2 tracking-wide uppercase">{value.title}</h3>
@@ -120,10 +122,10 @@ export default function Team() {
             className="mb-12"
           >
             <span className="font-display text-xs tracking-[0.4em] uppercase text-racing-red">
-              Athletes
+              {t('team.athletes')}
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mt-4">
-              OUR <span className="text-racing-red">RIDERS</span>
+              {t('team.ourRiders')} <span className="text-racing-red">{t('team.ridersAccent')}</span>
             </h2>
           </motion.div>
 
@@ -133,7 +135,7 @@ export default function Team() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`font-display text-xs tracking-[0.15em] uppercase px-5 py-2 border transition-all duration-300 ${
+                className={`font-display text-xs tracking-[0.15em] uppercase px-5 py-2.5 min-h-[44px] border transition-[background-color,border-color,color] duration-300 ${
                   activeCategory === cat
                     ? "bg-racing-red border-racing-red text-white"
                     : "border-white/20 text-silver hover:border-racing-red hover:text-racing-red"
@@ -145,6 +147,7 @@ export default function Team() {
           </div>
 
           {/* Riders Grid */}
+          {filteredRiders.length > 0 ? (
           <motion.div
             layout
             className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
@@ -165,7 +168,7 @@ export default function Team() {
                     alt={rider.name}
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
                   <div className="absolute top-0 left-0 w-0 h-[3px] bg-racing-red group-hover:w-full transition-all duration-500" />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-5">
@@ -179,6 +182,12 @@ export default function Team() {
               </motion.div>
             ))}
           </motion.div>
+          ) : (
+          <div className="text-center py-16">
+            <p className="font-body text-lg text-silver/60 mb-4">{t('team.noRiders')}</p>
+            <button onClick={() => setActiveCategory("All")} className="font-display text-sm tracking-[0.15em] uppercase text-racing-red hover:text-white transition-colors">{t('team.showAll')}</button>
+          </div>
+          )}
         </div>
       </section>
 
@@ -192,24 +201,24 @@ export default function Team() {
           >
             <div className="w-16 h-[3px] bg-racing-red mx-auto mb-8" />
             <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
-              JOIN THE <span className="text-racing-red">TEAM</span>
+              {t('team.joinTeam')} <span className="text-racing-red">{t('team.joinTeamAccent')}</span>
             </h2>
             <p className="font-body text-lg text-silver/70 max-w-xl mx-auto mb-10">
-              Interested in becoming part of LCC? Whether you're an elite rider or emerging talent, we're always looking for dedicated cyclists.
+              {t('team.joinTeamDesc')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-[background-color,transform] duration-300 active:scale-[0.97]"
               >
-                Contact Us
+                {t('team.contactUs')}
                 <ArrowRight size={16} />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-10 py-4 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
+                className="inline-flex items-center gap-2 px-10 py-4 border border-white/30 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-[border-color,color] duration-300 active:scale-[0.97]"
               >
-                Join LCC
+                {t('team.joinLCC')}
               </Link>
             </div>
           </motion.div>

@@ -216,7 +216,7 @@ export default function CalendarPage() {
                   <button
                     key={cat.value}
                     onClick={() => setSelectedCategory(cat.value)}
-                    className={`font-display text-xs tracking-[0.15em] uppercase px-5 py-2 border transition-all duration-300 ${
+                    className={`font-display text-xs tracking-[0.15em] uppercase px-5 py-2.5 min-h-[44px] border transition-[background-color,border-color,color] duration-300 ${
                       selectedCategory === cat.value
                         ? "bg-racing-red border-racing-red text-white"
                         : "border-white/20 text-silver hover:border-racing-red hover:text-racing-red"
@@ -238,7 +238,7 @@ export default function CalendarPage() {
                   <button
                     key={month.value}
                     onClick={() => setSelectedMonth(month.value)}
-                    className={`font-display text-xs tracking-[0.15em] uppercase px-5 py-2 border transition-all duration-300 ${
+                    className={`font-display text-xs tracking-[0.15em] uppercase px-5 py-2.5 min-h-[44px] border transition-[background-color,border-color,color] duration-300 ${
                       selectedMonth === month.value
                         ? "bg-racing-red border-racing-red text-white"
                         : "border-white/20 text-silver hover:border-racing-red hover:text-racing-red"
@@ -262,7 +262,7 @@ export default function CalendarPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={eventsInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.1 + i * 0.05 }}
-                    className="group p-6 md:p-8 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-all duration-500"
+                    className="group p-6 md:p-8 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-[border-color] duration-500"
                   >
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
                       {/* Left: Icon & Title */}
@@ -281,7 +281,7 @@ export default function CalendarPage() {
                       </div>
 
                       {/* Right: Details */}
-                      <div className="md:text-right space-y-3 flex-shrink-0">
+                      <div className="md:text-end space-y-3 flex-shrink-0">
                         {/* Date */}
                         <div className="flex md:justify-end items-center gap-2">
                           <Calendar size={16} className="text-racing-red md:hidden" />

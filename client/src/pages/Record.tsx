@@ -104,7 +104,7 @@ export default function Record() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={summaryInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-                className="group p-6 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-all duration-500 text-center"
+                className="group p-6 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-[border-color] duration-500 text-center"
               >
                 <result.icon size={28} className="text-racing-red mx-auto mb-4" />
                 <div className="font-display text-4xl font-bold text-white mb-2">{result.count}</div>
@@ -139,7 +139,7 @@ export default function Record() {
               <button
                 key={year}
                 onClick={() => setActiveYear(year)}
-                className={`font-display text-xs tracking-[0.15em] uppercase px-5 py-2 border transition-all duration-300 ${
+                className={`font-display text-xs tracking-[0.15em] uppercase px-5 py-2.5 min-h-[44px] border transition-[background-color,border-color,color] duration-300 ${
                   activeYear === year
                     ? "bg-racing-red border-racing-red text-white"
                     : "border-white/20 text-silver hover:border-racing-red hover:text-racing-red"
@@ -153,13 +153,14 @@ export default function Record() {
           {/* Results Table */}
           <div className="overflow-x-auto">
             <table className="w-full">
+              <caption className="sr-only">Race results and championship records</caption>
               <thead>
                 <tr className="border-b border-white/10">
-                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4">{t('recordPage.year')}</th>
-                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4">{t('recordPage.event')}</th>
-                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4 hidden md:table-cell">{t('recordPage.category')}</th>
-                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4 pr-4 hidden lg:table-cell">{t('recordPage.rider')}</th>
-                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-left py-4">{t('recordPage.result')}</th>
+                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-start py-4 pr-4">{t('recordPage.year')}</th>
+                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-start py-4 pr-4">{t('recordPage.event')}</th>
+                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-start py-4 pr-4 hidden md:table-cell">{t('recordPage.category')}</th>
+                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-start py-4 pr-4 hidden lg:table-cell">{t('recordPage.rider')}</th>
+                  <th className="font-display text-xs tracking-[0.2em] uppercase text-racing-red text-start py-4">{t('recordPage.result')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -184,6 +185,14 @@ export default function Record() {
                     </td>
                   </motion.tr>
                 ))}
+                {filteredResults.length === 0 && (
+                  <tr>
+                    <td colSpan={5} className="text-center py-12">
+                      <p className="font-body text-lg text-silver/60 mb-4">No results match your filter.</p>
+                      <button onClick={() => setActiveYear(t('recordPage.all'))} className="font-display text-sm tracking-[0.15em] uppercase text-racing-red hover:text-white transition-colors">Show all results</button>
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
@@ -214,7 +223,7 @@ export default function Record() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={champInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.2 + i * 0.1 }}
-                className="group p-8 bg-charcoal border border-white/5 hover:border-racing-red/40 transition-all duration-500 relative overflow-hidden"
+                className="group p-8 bg-charcoal border border-white/5 hover:border-racing-red/40 transition-[border-color] duration-500 relative overflow-hidden"
               >
                 <div className="absolute top-0 left-0 w-0 h-[3px] bg-racing-red group-hover:w-full transition-all duration-500" />
                 <span className="font-display text-[10px] tracking-[0.3em] uppercase text-racing-red bg-racing-red/10 px-3 py-1 inline-block mb-4">
@@ -282,7 +291,7 @@ export default function Record() {
             </h3>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300 mt-4"
+              className="inline-flex items-center gap-2 px-10 py-4 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-[background-color,transform] duration-300 active:scale-[0.97] mt-4"
             >
               {t('recordPage.joinLCC')}
               <ArrowRight size={16} />

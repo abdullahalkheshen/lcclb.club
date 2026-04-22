@@ -87,7 +87,7 @@ export default function News() {
             initial={{ opacity: 0, y: 30 }}
             animate={featuredInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="group grid lg:grid-cols-2 gap-0 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-all duration-500 overflow-hidden"
+            className="group grid lg:grid-cols-2 gap-0 bg-charcoal border border-white/5 hover:border-racing-red/30 transition-[border-color] duration-500 overflow-hidden"
           >
             <div className="relative h-[300px] lg:h-auto overflow-hidden">
               <img
@@ -103,7 +103,7 @@ export default function News() {
                 <span className="font-display text-[10px] tracking-[0.3em] uppercase text-racing-red">
                   {featuredStory.category}
                 </span>
-                <span className="font-body text-xs text-silver/40 ml-auto flex items-center gap-1">
+                <span className="font-body text-xs text-silver/40 ms-auto flex items-center gap-1">
                   <Calendar size={12} /> {featuredStory.date}
                 </span>
               </div>
@@ -113,7 +113,7 @@ export default function News() {
               <p className="font-body text-silver/70 leading-relaxed mb-6">
                 {featuredStory.summary}
               </p>
-              <span className="inline-flex items-center gap-2 text-racing-red font-display text-sm tracking-[0.15em] uppercase group-hover:translate-x-2 transition-transform">
+              <span role="link" tabIndex={0} className="inline-flex cursor-pointer items-center gap-2 text-racing-red font-display text-sm tracking-[0.15em] uppercase group-hover:translate-x-2 transition-transform">
                 {t('newsPage.readMore')} <ArrowRight size={14} />
               </span>
             </div>
@@ -144,7 +144,7 @@ export default function News() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`font-display text-xs tracking-[0.15em] uppercase px-5 py-2 border transition-all duration-300 ${
+                className={`font-display text-xs tracking-[0.15em] uppercase px-5 py-2.5 min-h-[44px] border transition-[background-color,border-color,color] duration-300 ${
                   activeCategory === cat
                     ? "bg-racing-red border-racing-red text-white"
                     : "border-white/20 text-silver hover:border-racing-red hover:text-racing-red"
@@ -163,7 +163,7 @@ export default function News() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={listInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group bg-dark-surface border border-white/5 hover:border-racing-red/30 transition-all duration-500 overflow-hidden"
+                className="group bg-dark-surface border border-white/5 hover:border-racing-red/30 transition-[border-color] duration-500 overflow-hidden"
               >
                 <div className="relative h-[200px] overflow-hidden">
                   <img
@@ -178,7 +178,7 @@ export default function News() {
                     <span className="font-display text-[10px] tracking-[0.3em] uppercase text-racing-red">
                       {article.category}
                     </span>
-                    <span className="font-body text-xs text-silver/40 ml-auto">
+                    <span className="font-body text-xs text-silver/40 ms-auto">
                       {article.date}
                     </span>
                   </div>
@@ -192,6 +192,13 @@ export default function News() {
               </motion.div>
             ))}
           </div>
+
+          {filteredArticles.length === 0 && (
+            <div className="text-center py-16">
+              <p className="font-body text-lg text-silver/60 mb-4">No articles found in this category.</p>
+              <button onClick={() => setActiveCategory(t('newsPage.all'))} className="font-display text-sm tracking-[0.15em] uppercase text-racing-red hover:text-white transition-colors">Show all news</button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -215,19 +222,19 @@ export default function News() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/team"
-                className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-3.5 min-h-[44px] border border-white/20 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-[border-color,color] duration-300 active:scale-[0.97]"
               >
                 {t('newsPage.meetRiders')}
               </Link>
               <Link
                 href="/record"
-                className="inline-flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-3.5 min-h-[44px] border border-white/20 text-white font-display text-sm tracking-[0.15em] uppercase hover:border-racing-red hover:text-racing-red transition-[border-color,color] duration-300 active:scale-[0.97]"
               >
                 {t('newsPage.viewResults')}
               </Link>
               <Link
                 href="/partners"
-                className="inline-flex items-center gap-2 px-8 py-3 bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-all duration-300"
+                className="inline-flex items-center gap-2 px-8 py-3.5 min-h-[44px] bg-racing-red text-white font-display text-sm tracking-[0.15em] uppercase hover:bg-racing-red/90 transition-[background-color] duration-300 active:scale-[0.97]"
               >
                 {t('newsPage.partnerWithLCC')}
               </Link>
