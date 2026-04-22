@@ -28,6 +28,18 @@ const riders = [
     achievement: "Lebanon Cup Winner 2024",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/HaidarSabah_fbfcc35d.webp",
   },
+  {
+    name: "Ali Zayoun",
+    category: "Junior",
+    achievement: "Lebanon Cup Podium Finisher",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ali Zayoun_3aad717c.jpg",
+  },
+  {
+    name: "Ali Zarour",
+    category: "Junior",
+    achievement: "Lebanon Cup Podium Finisher",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ali Zarour_9c88c7e8.jpg",
+  },
 ];
 
 export default function RidersSpotlight() {
