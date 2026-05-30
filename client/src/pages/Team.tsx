@@ -24,18 +24,14 @@ const getTeamValues = (t: any) => [
 const riders = [
   // Masters
   { name: "Monzer Toza", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Monzer Toza_047f8a9e.jpg" },
-  { name: "Mohamad Ayash", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Mohamad Ayash_63abf230.jpg" },
-  { name: "Haidar Sabah", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/HaidarSabah_fbfcc35d.webp" },
   { name: "Ali Atwi", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/AliAtwi_710c1abc.webp" },
   { name: "Hussein Lizeik", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Hussein Lizeik_5002ad5e.jpg" },
-  { name: "Mohamad Al Sayed", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Mohamad Al Sayed_bf29b8f9.jpg" },
   { name: "Rida Atwi", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Rida Atwi_33886f58.jpg" },
-  { name: "Ramon Khalife", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramon-khalife_f9e45c1b.png" },
+  { name: "Ramona Khalife", category: "Masters", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramon-khalife_f9e45c1b.png" },
   // Elite
   { name: "Hussien Hareb", category: "Elite", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Hussien Hareb_0d0d0a7d.jpg" },
   { name: "Ali Assi", category: "Elite", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Ali Assi_b133c6c2.jpg" },
   { name: "Abbas Atwi", category: "Elite", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Abbas Atwi_819b0601.jpg" },
-  { name: "Hadi Haidar", category: "Elite", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Hadi Haidar_2fc6c215.jpg" },
   { name: "Mostafa Fahes", category: "Elite", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Mostafa Fahes_bf2db6a0.jpg" },
   { name: "Mahdi Moussa", category: "Elite", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Mahdi Moussa_48966ca6.jpg" },
   { name: "Mohamad Al Haj", category: "Elite", image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/Mohamad Al Haj_f4f1f11c.jpg" },

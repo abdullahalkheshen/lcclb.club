@@ -13,11 +13,9 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const galleryImages = [
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/lizeik_42758a09.jpg", alt: "Hussein Lizeik racing", caption: "Lizeik — Race Day", span: "col-span-1 row-span-2" },
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/hareb_991a0a8b.jpg", alt: "Hussien Hareb in action", caption: "Hareb — Full Speed", span: "col-span-1 row-span-1" },
-  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/sabah_c84c8fe6.jpg", alt: "Haidar Sabah competing", caption: "Sabah — On the Road", span: "col-span-1 row-span-1" },
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/atwi_1_5f2b490b.jpg", alt: "Atwi racing", caption: "Atwi — Breaking Away", span: "col-span-2 row-span-1" },
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramona_0d6d5a75.jpg", alt: "Ramona Khalife racing", caption: "Khalife — Women's Champion", span: "col-span-1 row-span-1" },
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/moussa_5214407b.jpg", alt: "Mahdi Moussa competing", caption: "Moussa — Race Pace", span: "col-span-1 row-span-1" },
-  { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ayash_26820c18.jpg", alt: "Mohamad Ayash racing", caption: "Ayash — Climbing", span: "col-span-1 row-span-1" },
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/atwi_b618f6e0.jpg", alt: "Atwi on the course", caption: "Atwi — Sprint Finish", span: "col-span-1 row-span-1" },
   { src: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramona_1_4cf41c9b.jpg", alt: "Ramona Khalife training", caption: "Khalife — Training Ride", span: "col-span-1 row-span-1" },
 ];

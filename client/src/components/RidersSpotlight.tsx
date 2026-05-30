@@ -11,7 +11,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const riders = [
   {
-    name: "Ramon Khalife",
+    name: "Ramona Khalife",
     category: "Elite",
     achievement: "Women's TT National Champion 2024",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/ramon-khalife_f9e45c1b.png",
@@ -21,12 +21,6 @@ const riders = [
     category: "Elite",
     achievement: "National Road Race Champion",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/AliAtwi_710c1abc.webp",
-  },
-  {
-    name: "Haidar Sabah",
-    category: "Elite",
-    achievement: "Lebanon Cup Winner 2024",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310419663028315716/HR85Ae6ePSDFoQhDjfX2G6/HaidarSabah_fbfcc35d.webp",
   },
   {
     name: "Ali Zayoun",
